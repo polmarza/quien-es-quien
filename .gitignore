@@ -17,6 +17,7 @@ out/
 .nuxt/
 .output/
 .vercel/
+.wrangler/
 
 # Cache
 .cache/
@@ -27,6 +28,9 @@ out/
 # Testing
 coverage/
 .nyc_output/
+playwright-report/
+test-results/
+blob-report/
 
 # TypeScript
 *.tsbuildinfo

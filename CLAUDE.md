@@ -8,11 +8,7 @@ Lee este archivo completo antes de hacer cualquier cambio.
 Antes de hacer cualquier cosa, comprueba el estado del repositorio:
 
 1. Lee todos los archivos de `docs/`.
-2. **Si existe `.template/`, o si los documentos están vacíos o solo tienen comentarios**, el
-   proyecto no está inicializado. No escribas código ni rellenes nada por tu cuenta: carga
-   **`/init-proyecto`** y síguela. Si había contenido y `.template/` sigue ahí, la inicialización
-   quedó a medias: avisa al usuario y ofrécete a completarla.
-3. Mira `docs/features/`. Si hay alguna ficha en estado **En construcción**, ahí está el trabajo a
+2. Mira `docs/features/`. Si hay alguna ficha en estado **En construcción**, ahí está el trabajo a
    medias: léela antes de proponer nada nuevo.
 
 Si algo no cuadra (falta configuración, los tests no arrancan, hay fichas colgadas),
@@ -24,8 +20,10 @@ archivo y las skills tienen instrucciones desfasadas o contradictorias.
 
 ## Documentación
 
-`docs/` tiene ocho archivos, pero **no todos los proyectos necesitan los ocho**; qué documentos
-aplican según el tamaño y en qué orden se rellenan está en **`/documentacion`**.
+Este proyecto es un **producto** (hay estado y datos, sin cuentas ni monetización) y usa siete
+documentos: `prd.md`, `architecture.md`, `design-system.md`, `data-model.md`, `roadmap.md`,
+`user-flows.md` y `testing.md`. `business.md` se borró a propósito: el juego es gratuito. Qué
+documentos aplican según el tamaño está en **`/documentacion`**.
 
 - `prd.md` y `architecture.md` no se saltan nunca.
 - Un documento que no aplique **se borra**, no se deja vacío: un archivo con solo comentarios es
@@ -35,23 +33,6 @@ aplican según el tamaño y en qué orden se rellenan está en **`/documentacion
   faltan en ese momento, no al final.
 
 `docs/features/` es aparte: no describe el proyecto, sino cada unidad de trabajo acordada.
-
----
-
-## Inicialización del proyecto (una sola vez)
-
-Esta plantilla se distribuye con documentación que habla **de la plantilla**, no del proyecto.
-En cuanto los documentos de `docs/` estén rellenos, conviértela en el repo de *este* proyecto.
-Hazlo por iniciativa propia, sin esperar a que el usuario lo pida.
-
-El proceso entero —rellenar `docs/` y después README, `CLAUDE.md`, licencia, `.env.example`, MCPs,
-changelog y borrado de `.template/`— vive en la skill **`/init-proyecto`**. Cárgala y síguela
-entera; no la reconstruyas de memoria.
-
-**Regla general:** después de la inicialización, ningún archivo del repo debe describirse a sí
-mismo como plantilla ni explicar cómo usar la plantilla. Toda la documentación habla del
-producto que se está construyendo. Si más adelante encuentras un resto de la plantilla en
-cualquier archivo, corrígelo en esa misma sesión.
 
 ---
 
@@ -86,81 +67,49 @@ El procedimiento completo —comprobar lo ya configurado, elegir alcance (`user`
 
 ## Descripción del proyecto
 
-<!-- Escribe aquí 3-4 líneas que expliquen qué es este proyecto, qué problema resuelve y para quién.
-     Ejemplo:
-     "Plataforma web para que coleccionistas de vinilos cataloguen y compartan sus colecciones.
-     Usuario objetivo: adultos 25-45 con colecciones físicas que quieren digitalizar su catálogo.
-     Stack principal: Next.js + Supabase + Vercel." -->
-
-**Nombre:** <!-- nombre-del-proyecto -->
-**Descripción:** <!-- una frase -->
-**Estado actual:** <!-- En desarrollo / Beta / Producción -->
+**Nombre:** Quién es quién
+**Descripción:** Juego de navegador del estilo "¿quién es quién?" con políticos españoles
+fotorrealistas, para jugar contra la máquina (y más adelante contra otra persona).
+**Estado actual:** En desarrollo (documentación cerrada; fase 1 del roadmap sin empezar)
 
 ---
 
 ## Stack tecnológico
 
-<!-- Completa esto con el stack real del proyecto.
-     Ejemplo:
-     - Framework: Next.js 14 (App Router)
-     - Base de datos: Supabase (PostgreSQL + Auth + Storage)
-     - Estilos: Tailwind CSS + shadcn/ui
-     - Despliegue: Vercel
-     - Pagos: Stripe
-     - Email: Resend -->
-
-- Framework: <!-- ... -->
-- Base de datos: <!-- ... -->
-- Estilos: <!-- ... -->
-- Despliegue: <!-- ... -->
-- Otras integraciones: <!-- ... -->
+- Framework: React + Vite + TypeScript estricto (SPA estática)
+- Motor del juego: TypeScript puro en `src/engine/`, sin React ni DOM (se reutiliza en el servidor
+  del nivel 2)
+- Base de datos: ninguna. Cada baraja es `src/decks/<id>/deck.json` validado con Zod
+- Estilos: CSS Modules con variables CSS (tokens de `docs/design-system.md`); 3D con CSS, sin WebGL
+- Despliegue: Cloudflare Workers con assets estáticos, conectado al repo de GitHub (Workers Builds)
+- Otras integraciones: nivel 2 con Durable Objects + WebSockets; fotos de Wikimedia Commons
+  procesadas en local con `sharp`
+- Tests: Vitest + Playwright
 
 ---
 
 ## Estructura de carpetas
 
-<!-- Documenta aquí la estructura real del proyecto una vez inicializado.
-     Ejemplo:
-     src/
-     ├── app/          → rutas (App Router)
-     ├── components/   → componentes reutilizables
-     ├── lib/          → utilidades, clientes de servicios externos
-     ├── hooks/        → custom hooks
-     └── types/        → tipos TypeScript compartidos
-     
-     docs/             → documentación del proyecto (ver sección anterior)
-     docs/features/    → fichas de las features acordadas, con su tabla de cobertura
-     changelog/        → registro de cambios (ver protocolo más abajo)
-     mejoras/          → ideas futuras no implementadas -->
+La estructura prevista está en `docs/architecture.md` → "Estructura de carpetas". Se actualiza
+allí cuando exista el código.
 
 ---
 
 ## Convenciones de código
 
-<!-- Define aquí las reglas de estilo específicas del proyecto.
-     Ejemplo:
-     - TypeScript estricto. No usar `any`.
-     - Componentes en PascalCase, archivos en kebab-case.
-     - Toda función async debe manejar errores explícitamente.
-     - No usar `console.log` en producción.
-     - Comentarios en español. -->
-
 - Gestor de paquetes: pnpm v11. No usar npm ni yarn.
-- Idioma de comentarios y variables: <!-- español / inglés -->
-- Nombrado de componentes: <!-- PascalCase -->
-- Nombrado de archivos: <!-- kebab-case -->
-- <!-- Añade más reglas según el proyecto -->
+- Idioma: interfaz, comentarios y documentación en español; identificadores de código en inglés,
+  salvo los IDs de datos de la baraja (`politicos-es`, `consejo-ministros`), que van en español.
+- Nombrado de componentes: PascalCase.
+- Nombrado de archivos: kebab-case (los componentes React, `PascalCase.tsx`).
+- El motor (`src/engine/`) no importa nada de React, del DOM ni de `src/ui/`.
+- El motor recibe una semilla para todo el azar; nada de `Math.random()` suelto.
+- Una baraja nueva no toca código: solo añade una carpeta en `src/decks/` que pase
+  `pnpm validar-baraja`.
 
 ---
 
 ## Qué NO hacer
-
-<!-- Lista de antipatrones específicos de este proyecto.
-     Ejemplo:
-     - No modificar el esquema de Supabase directamente desde el cliente; usar migraciones.
-     - No almacenar tokens en localStorage; usar cookies httpOnly.
-     - No crear componentes nuevos sin consultar docs/design-system.md primero.
-     - No hacer fetch directo a APIs externas desde componentes; usar server actions o route handlers. -->
 
 - No usar `npm` ni `yarn`. Siempre `pnpm` (v11).
 - No escribir claves ni tokens reales en `.mcp.json`: el archivo se commitea. Usa `${VARIABLE}` y
@@ -174,7 +123,12 @@ El procedimiento completo —comprobar lo ya configurado, elegir alcance (`user`
 - No meter procedimientos en este archivo ni crear archivos en `.claude/commands/` (formato
   heredado). Un procedimiento nuevo es una skill en `.claude/skills/<nombre>/SKILL.md`, con una
   `description` que diga qué hace y cuándo usarla: Claude la carga sola cuando toca.
-- <!-- ... -->
+- No añadir preguntas sobre el aspecto físico de los personajes (solo el sexo), ni preguntas
+  cuya respuesta sea discutible o no tenga fuente. Ver `docs/data-model.md`.
+- No usar fotos sin licencia que permita reutilizarlas ni sin autor, licencia y fuente en
+  `deck.json`. No generar ni retocar caras con IA.
+- No usar colores de partido en la interfaz (botones, avisos); solo en los tableros.
+- No enviar al navegador el personaje secreto del rival en el modo multijugador.
 
 ---
 
@@ -229,15 +183,14 @@ y el detalle de qué valida el script están en `docs/features/README.md`.
 
 Cada vez que hagas un cambio importante:
 
-1. **Entrada en `changelog/`**, con `/changelog`. Mientras exista `.template/`, los cambios sobre el
-   andamiaje van a `.template/changelog/`.
+1. **Entrada en `changelog/`**, con `/changelog`.
 2. **Actualiza en la misma sesión la documentación que el cambio deja desfasada:** `docs/` (datos,
    diseño, arquitectura o MCP, PRD y roadmap si el alcance cambia), la ficha de la feature
    (**Verificada** al cerrarla, y su tabla si el alcance cambia a mitad) y el `README.md` si
    cambia cómo se instala o usa el proyecto.
 3. **`/security-review`** antes de mergear a producción, o cuando el usuario lo pida.
 
-**Los PRs los crea el agente, no el usuario**: así la plantilla llega rellena. Rellena
+**Los PRs los crea el agente, no el usuario**: así la plantilla del PR llega rellena. Rellena
 `.github/pull_request_template.md` **entera**; lleva las instrucciones de cada sección. Dos reglas
 que no se negocian:
 
@@ -262,5 +215,7 @@ Si la carpeta `mejoras/` no existe, créala.
 
 ## Notas adicionales
 
-<!-- Cualquier otra instrucción específica del proyecto que no encaje en las secciones anteriores.
-     Ejemplos: credenciales de entorno necesarias, comandos de desarrollo, quirks conocidos del stack. -->
+- Los cargos de los personajes caducan: cada baraja lleva `dataAsOf`. Al actualizar un dato,
+  actualiza también esa fecha.
+- La vista 3D (ángulo, cámara, plástico) se ajusta a ojo sobre el prototipo; los valores de
+  `docs/design-system.md` son el punto de partida, no un contrato.

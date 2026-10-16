@@ -7,10 +7,11 @@
 
 ## Filosofía
 
-<!-- Describe el enfoque de testing del proyecto.
-     Ejemplo: "Priorizamos tests de integración sobre unitarios porque nuestro valor
-     está en los flujos completos, no en funciones aisladas."
-     o: "Seguimos la pirámide clásica: muchos unitarios, integración selectiva, pocos e2e." -->
+El valor está en dos sitios: que las reglas del juego sean correctas (qué fichas caen, de quién
+es el turno, quién gana) y que la partida se pueda jugar de principio a fin en el navegador. Las
+reglas viven en un motor sin DOM, así que se cubren con muchos tests unitarios rápidos. La
+interfaz se cubre con pocos tests E2E que juegan partidas completas. El equilibrio de la baraja es
+un script con sus propios tests.
 
 ---
 
@@ -46,58 +47,58 @@ Reglas que se derivan de eso:
 
 ## Stack de testing
 
-<!-- Herramientas utilizadas por tipo de test.
-     Ejemplo:
-     | Tipo | Herramienta |
-     |------|-------------|
-     | Unitario | Vitest |
-     | Integración | Vitest + Testing Library |
-     | E2E | Playwright | -->
-
 | Tipo | Herramienta |
 |------|-------------|
-| Unitario | <!-- --> |
-| Integración | <!-- --> |
-| E2E | <!-- --> |
+| Unitario | Vitest (motor, máquina, validación de baraja) |
+| Integración | Vitest + Testing Library (componentes con estado: lista de preguntas, contador) |
+| E2E | Playwright contra `localhost` (`pnpm preview`), Chromium y WebKit móvil |
 
 ---
 
 ## Qué testear
 
-<!-- Distingue explícitamente qué merece test y qué no, para no perder tiempo.
-     Ejemplo:
-     SÍ → lógica de negocio, transformaciones de datos, componentes con estado complejo
-     NO → componentes puramente visuales, integraciones con terceros (mockear en su lugar) -->
-
 ### Sí testear
-- <!-- -->
+- Motor: reparto de secretos, turnos, respuesta a cada pregunta, qué fichas se marcan, adivinar y
+  fin de partida.
+- Máquina: que responde siempre la verdad sobre su secreto y que en "Difícil" elige la pregunta
+  que mejor parte sus fichas.
+- Baraja: esquema válido, equilibrio de cada pregunta (8–16 de 24) y de los repartos principales,
+  y que toda foto tiene autor, licencia y fuente.
+- E2E: partida completa ganada y perdida, bajar y levantar a mano, cambio de tono, contador del
+  rival, página de créditos.
+- Partidas deterministas: el motor acepta una semilla para el azar, así los tests saben qué
+  secreto tiene cada uno.
 
 ### No testear (o mockear)
-- <!-- -->
+- La calidad visual de la animación y el ángulo de la cámara: se revisan a ojo en el prototipo.
+  Los E2E se ejecutan con `prefers-reduced-motion: reduce` para no depender de los tiempos de
+  animación.
+- El procesado de fotos con `sharp`: se revisa el resultado visualmente; se testea solo el cálculo
+  del recorte.
 
 ---
 
 ## Convenciones
 
-<!-- Naming, ubicación de archivos, estructura interna de los tests.
-     Ejemplo:
-     - Archivos: `nombre.test.ts` junto al archivo que testa
-     - Describe en presente: "calcula el total con descuento"
-     - Un assert por test cuando sea posible -->
+- Unitarios junto al código: `src/engine/turnos.test.ts`.
+- E2E en `tests/e2e/`, un archivo por flujo: `partida-contra-maquina.spec.ts`.
+- El nombre del test empieza por el ID del requisito: `"M-04 baja las fichas que no encajan"`.
+- Descripciones en presente y en español.
+- Selectores E2E por rol accesible o `data-testid`, nunca por clases CSS.
 
 ---
 
 ## Cobertura objetivo
 
-<!-- Porcentaje objetivo y cómo medirlo.
-     Ejemplo: ≥ 80% en lógica de negocio. Ignorar archivos de configuración y tipos. -->
+≥ 90% de líneas en `src/engine/` y en el script de validación de baraja. Sin objetivo numérico en
+la interfaz: la cubren los E2E por requisito.
 
 ---
 
 ## Cómo correr los tests
 
 ```bash
-# Todos los tests
+# Todos los tests unitarios y de integración
 pnpm test
 
 # Modo watch
@@ -106,8 +107,9 @@ pnpm test:watch
 # Con cobertura
 pnpm test:coverage
 
-# E2E
+# E2E (levanta el build en localhost)
 pnpm test:e2e
-```
 
-<!-- Ajusta los comandos al stack elegido una vez relleno architecture.md. -->
+# Validar el equilibrio de las barajas
+pnpm validar-baraja
+```
