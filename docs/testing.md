@@ -95,6 +95,13 @@ la interfaz: la cubren los E2E por requisito.
 
 ---
 
+## En CI
+
+`.github/workflows/tests.yml` ejecuta `pnpm build` (que incluye la comprobación de tipos) y
+`pnpm test` en cada pull request y en cada push a `main`. `.github/workflows/cobertura.yml`
+verifica las tablas de cobertura de `docs/features/`. Los E2E se añadirán a CI con los de la
+partida.
+
 ## Cómo correr los tests
 
 ```bash

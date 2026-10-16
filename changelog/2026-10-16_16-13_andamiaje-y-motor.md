@@ -15,11 +15,12 @@
   una (o al azar si se queda sin preguntas).
 - Esquema Zod de las barajas y una baraja de prueba de 8 personajes para los tests.
 - 34 tests unitarios y un test E2E de arranque.
+- Workflow `.github/workflows/tests.yml`: tipos, build y tests unitarios en cada PR y push a main.
 
 ## Qué se modificó
 - Nuevos: `package.json`, `pnpm-lock.yaml`, `pnpm-workspace.yaml`, `tsconfig.json`,
   `vite.config.ts`, `playwright.config.ts`, `wrangler.jsonc`, `index.html`, `src/**`,
-  `tests/e2e/arranque.spec.ts`.
+  `tests/e2e/arranque.spec.ts`, `.github/workflows/tests.yml`.
 - Actualizados: `docs/features/andamiaje-y-motor.md` (Verificada), `docs/architecture.md`,
   `docs/testing.md`, `docs/roadmap.md`, `README.md`, `CLAUDE.md`.
 
