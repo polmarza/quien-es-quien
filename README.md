@@ -34,7 +34,8 @@ fichas que ya no encajan. Gana quien adivine antes el personaje del otro.
 ## Estado
 
 En desarrollo. La documentación del producto está cerrada y la fase 1 (partida completa contra la
-máquina) está por empezar. Después vendrán jugar contra otra persona, salas y barajas de otros
+máquina) está en marcha: el proyecto y el motor del juego ya existen; faltan la baraja, el tablero
+y la partida jugable. Después vendrán jugar contra otra persona, salas y barajas de otros
 temas: ver [`docs/roadmap.md`](docs/roadmap.md).
 
 ---
@@ -59,7 +60,7 @@ pnpm install
 pnpm dev
 ```
 
-Comandos previstos (se activan al montar el proyecto en la fase 1):
+Comandos:
 
 | Comando | Qué hace |
 |---------|----------|
@@ -68,7 +69,8 @@ Comandos previstos (se activan al montar el proyecto en la fase 1):
 | `pnpm preview` | Sirve el build en local |
 | `pnpm test` | Tests unitarios (motor, máquina, baraja) |
 | `pnpm test:e2e` | Partidas completas con Playwright contra localhost |
-| `pnpm validar-baraja` | Comprueba el equilibrio y los créditos de cada baraja |
+| `pnpm typecheck` | Comprueba los tipos |
+| `pnpm validar-baraja` | (pendiente) Comprueba el equilibrio y los créditos de cada baraja |
 
 ## Despliegue
 
@@ -85,7 +87,8 @@ docs/features/ → Una ficha por funcionalidad acordada, con cómo se valida cad
 changelog/   → Registro de cambios importantes
 mejoras/     → Ideas que no entran ahora
 scripts/     → Verificación de cobertura de requisitos
-src/         → (fase 1) Motor del juego, barajas e interfaz
+src/         → Motor del juego, barajas e interfaz
+tests/e2e/   → Tests de Playwright
 ```
 
 La estructura detallada de `src/` está en [`docs/architecture.md`](docs/architecture.md).

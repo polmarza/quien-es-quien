@@ -59,12 +59,18 @@ número de fichas levantadas del rival.
 
 ## Estructura de carpetas
 
-Prevista; se actualiza cuando exista el código.
+Existe ya `src/engine/`, `src/decks/schema.ts`, `src/ui/App.tsx` (página provisional),
+`src/styles/` y `tests/e2e/`. El resto es la estructura prevista.
 
 ```
 src/
 ├── engine/           → Motor del juego: estado, turnos, preguntas, filtrado, la máquina (sin DOM)
+│   ├── game.ts       → Crear partida, preguntar, adivinar, bajar/levantar fichas, vista por jugador
+│   ├── bot.ts        → La máquina
+│   ├── random.ts     → Azar con semilla
+│   └── test-deck.ts  → Baraja pequeña para los tests
 ├── decks/
+│   ├── schema.ts     → Esquema Zod de una baraja
 │   └── politicos-es/ → Baraja: deck.json (personajes, atributos, preguntas, colores) y fotos procesadas
 ├── ui/
 │   ├── board/        → Tablero 3D, fichas, cámara y rotación

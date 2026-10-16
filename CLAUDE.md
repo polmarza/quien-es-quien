@@ -70,7 +70,7 @@ El procedimiento completo —comprobar lo ya configurado, elegir alcance (`user`
 **Nombre:** Quién es quién
 **Descripción:** Juego de navegador del estilo "¿quién es quién?" con políticos españoles
 fotorrealistas, para jugar contra la máquina (y más adelante contra otra persona).
-**Estado actual:** En desarrollo (documentación cerrada; fase 1 del roadmap sin empezar)
+**Estado actual:** En desarrollo (fase 1: andamiaje y motor hechos; siguen baraja, fotos y tablero)
 
 ---
 

@@ -11,9 +11,9 @@
 Una partida completa contra la máquina, en local y luego publicada en Cloudflare. Orden de
 construcción previsto:
 
-- [ ] **Andamiaje:** Vite + React + TypeScript, Vitest, Playwright, tokens del design system como
+- [x] **Andamiaje:** Vite + React + TypeScript, Vitest, Playwright, tokens del design system como
       variables CSS, `wrangler.jsonc`.
-- [ ] **Motor del juego** (sin interfaz): reparto con semilla, turnos, preguntas, fichas que
+- [x] **Motor del juego** (sin interfaz): reparto con semilla, turnos, preguntas, fichas que
       encajan, adivinar, fin de partida y la máquina en modo fácil — M-02, M-03, M-06, M-08, M-09.
 - [ ] **Baraja `politicos-es`:** datos con fuente de los 24 personajes, preguntas en los dos tonos
       y validador de equilibrio — M-10, M-12 (textos).

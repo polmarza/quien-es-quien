@@ -51,7 +51,7 @@ Reglas que se derivan de eso:
 |------|-------------|
 | Unitario | Vitest (motor, máquina, validación de baraja) |
 | Integración | Vitest + Testing Library (componentes con estado: lista de preguntas, contador) |
-| E2E | Playwright contra `localhost` (`pnpm preview`), Chromium y WebKit móvil |
+| E2E | Playwright contra `localhost` (`pnpm preview`): Chromium escritorio y Chromium con emulación de móvil; WebKit móvil se añade con los E2E de la partida |
 
 ---
 
@@ -110,6 +110,6 @@ pnpm test:coverage
 # E2E (levanta el build en localhost)
 pnpm test:e2e
 
-# Validar el equilibrio de las barajas
+# Validar el equilibrio de las barajas (llega con la feature de la baraja)
 pnpm validar-baraja
 ```
