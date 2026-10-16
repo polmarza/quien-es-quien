@@ -1,0 +1,43 @@
+/* Tokens del design system (docs/design-system.md). Fuente única de colores, tipografía y espaciado. */
+:root {
+  /* Tableros por defecto */
+  --board-player: #c8262c;
+  --board-player-shade: #8f1a1f;
+  --board-rival: #2f86c9;
+  --board-rival-shade: #1f5f93;
+  --secret-frame: #f2c230;
+
+  /* Interfaz */
+  --accent: #d9a21b;
+  --accent-hover: #b5850f;
+  --table: #2a2420;
+  --photo-backdrop: #d6dce1;
+  --nameplate: #faf8f3;
+  --text-primary: #1e1b18;
+  --text-on-dark: #f3eee6;
+  --text-secondary: #6e665c;
+  --yes: #2f8f5b;
+  --no: #9a4a3c;
+  --marked: #f2c230;
+
+  /* Tipografía */
+  --font-display: 'Bricolage Grotesque', system-ui, sans-serif;
+  --font-nameplate: 'Barlow Condensed', system-ui, sans-serif;
+  --font-body: 'Atkinson Hyperlegible', system-ui, sans-serif;
+
+  /* Espaciado (base 4px) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* Formas */
+  --radius-tile: 6px;
+  --radius-board: 16px;
+  --radius-button: 10px;
+  --max-width: 960px;
+}

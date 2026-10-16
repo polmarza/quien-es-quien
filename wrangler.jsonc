@@ -1,0 +1,11 @@
+// Cloudflare Workers con assets estáticos. El despliegue lo hace Workers Builds al hacer push a
+// main (ver docs/architecture.md). En el nivel 2 aquí se añadirán el Worker y los Durable Objects.
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "quien-es-quien",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "single-page-application"
+  }
+}
