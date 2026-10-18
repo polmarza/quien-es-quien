@@ -25,6 +25,15 @@ function balancedDeck(): Deck {
       role: 'Prueba',
       attributes: Object.fromEntries(bits.map((k) => [`b${k}`, ((i >> k) & 1) === 1])),
       sources: [`https://example.org/${i}`, `https://example.org/${i}/b`],
+      photo: {
+        file: `p${i}.webp`,
+        original: `https://example.org/p${i}.jpg`,
+        author: 'Prueba',
+        license: 'CC BY-SA 4.0',
+        licenseUrl: 'https://creativecommons.org/licenses/by-sa/4.0',
+        sourceUrl: `https://example.org/p${i}`,
+        crop: { eyeX: 0.5, eyeY: 0.4, scale: 0.8 },
+      },
     })),
   };
 }
@@ -76,12 +85,43 @@ describe('M-10 validador de equilibrio', () => {
     expect(validateDeck(deck).errors).toEqual([expect.stringContaining('Cada personaje necesita al menos dos fuentes')]);
   });
 
-  it('avisa, sin fallar, de personajes sin foto y atributos sin pregunta', () => {
+  it('avisa, sin fallar, de atributos sin pregunta', () => {
     const deck = balancedDeck();
     deck.attributes.push({ id: 'suelto', kind: 'trayectoria', source: 'prueba' });
     deck.characters.forEach((c) => (c.attributes.suelto = false));
     const report = validateDeck(deck);
     expect(report.errors).toEqual([]);
-    expect(report.warnings).toEqual(['El atributo suelto no tiene ninguna pregunta', '24 personajes sin foto todavía (M-11)']);
+    expect(report.warnings).toEqual(['El atributo suelto no tiene ninguna pregunta']);
+  });
+});
+
+describe('M-11 créditos de las fotos', () => {
+  it('M-11 (negativo) rechaza una foto sin autor, licencia o fuente', () => {
+    const deck = balancedDeck();
+    const [first] = deck.characters;
+    if (!first) throw new Error('Baraja sintética vacía');
+    first.photo = { ...first.photo, author: '', sourceUrl: 'no-es-una-url' };
+    expect(validateDeck(deck).errors.length).toBeGreaterThan(0);
+  });
+
+  it('M-11 (negativo) rechaza una licencia no admitida', () => {
+    const deck = balancedDeck();
+    const [first] = deck.characters;
+    if (!first) throw new Error('Baraja sintética vacía');
+    first.photo.license = 'Todos los derechos reservados';
+    expect(validateDeck(deck).errors).toContain('La foto de p0 tiene una licencia no admitida: Todos los derechos reservados');
+  });
+
+  it('M-11 acepta las licencias de Commons que usa el juego', () => {
+    for (const license of ['CC0', 'CC BY 2.0', 'CC BY-SA 3.0 es', 'CC BY-SA 4.0', 'Public domain', 'Attribution']) {
+      const deck = balancedDeck();
+      deck.characters.forEach((c) => (c.photo.license = license));
+      expect(validateDeck(deck).errors, license).toEqual([]);
+    }
+  });
+
+  it('M-11 (negativo) avisa con error de las fotos procesadas que faltan', () => {
+    const report = validateDeck(balancedDeck(), { photoExists: (file) => file !== 'p3.webp' });
+    expect(report.errors).toEqual(['Falta la foto procesada de p3: p3.webp (ejecuta pnpm procesar-fotos)']);
   });
 });

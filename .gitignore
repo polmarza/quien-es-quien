@@ -55,3 +55,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+
+# Fotos: originales descargados y entorno de Python para quitar fondos
+fotos-originales/
+.venv-fotos/

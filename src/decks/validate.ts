@@ -7,6 +7,13 @@ import { deckSchema, type Deck } from './schema.ts';
 export const CHARACTERS = 24;
 export const QUESTION_RANGE = [8, 16] as const;
 export const CORE_RANGE = [10, 14] as const;
+/** Licencias de foto admitidas (tal como las nombra Wikimedia Commons). */
+export const ALLOWED_LICENSES = /^(CC0|CC BY [0-9.]+( [a-z]{2})?|CC BY-SA [0-9.]+( [a-z]{2})?|Public domain|Attribution)$/;
+
+export interface ValidationOptions {
+  /** Comprueba que el archivo de la foto procesada existe (lo pasa el script; los tests, a veces). */
+  photoExists?: (file: string) => boolean;
+}
 
 export interface ValidationReport {
   errors: string[];
@@ -15,7 +22,7 @@ export interface ValidationReport {
   counts: Record<string, number>;
 }
 
-export function validateDeck(input: unknown): ValidationReport {
+export function validateDeck(input: unknown, options: ValidationOptions = {}): ValidationReport {
   const parsed = deckSchema.safeParse(input);
   if (!parsed.success) {
     return {
@@ -24,10 +31,10 @@ export function validateDeck(input: unknown): ValidationReport {
       counts: {},
     };
   }
-  return checkBalance(parsed.data);
+  return checkBalance(parsed.data, options);
 }
 
-function checkBalance(deck: Deck): ValidationReport {
+function checkBalance(deck: Deck, options: ValidationOptions): ValidationReport {
   const errors: string[] = [];
   const warnings: string[] = [];
   const counts: Record<string, number> = {};
@@ -68,9 +75,13 @@ function checkBalance(deck: Deck): ValidationReport {
   for (const a of deck.attributes) {
     if (!asked.has(a.id)) warnings.push(`El atributo ${a.id} no tiene ninguna pregunta`);
   }
-  const withoutPhoto = deck.characters.filter((c) => !c.photo).map((c) => c.id);
-  if (withoutPhoto.length > 0) {
-    warnings.push(`${withoutPhoto.length} personajes sin foto todavía (M-11)`);
+  for (const c of deck.characters) {
+    if (!ALLOWED_LICENSES.test(c.photo.license)) {
+      errors.push(`La foto de ${c.id} tiene una licencia no admitida: ${c.photo.license}`);
+    }
+    if (options.photoExists && !options.photoExists(c.photo.file)) {
+      errors.push(`Falta la foto procesada de ${c.id}: ${c.photo.file} (ejecuta pnpm procesar-fotos)`);
+    }
   }
 
   return { errors, warnings, counts };

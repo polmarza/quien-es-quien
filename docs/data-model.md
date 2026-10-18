@@ -73,19 +73,19 @@ La respuesta a una pregunta es siempre `character.attributes[attributeId]`.
 | role | string | Cargo a fecha `dataAsOf`, o el último relevante si ya no está en activo |
 | attributes | Record<attributeId, boolean> | Un valor por cada atributo de la baraja, sin huecos |
 | sources | string[] (URL, mínimo 2) | Fuentes con las que se ha contrastado cada dato del personaje |
-| photo | Photo? | Foto y crédito. Opcional hasta la feature de las fotos (M-11), que lo hará obligatorio |
+| photo | Photo | Foto y crédito (M-11) |
 
 ### Photo
 
 | Campo | Tipo | Descripción |
 |-------|------|-------------|
-| file | string | Nombre de la foto procesada: `pedro-sanchez.webp` |
-| original | string | Archivo original en `fotos-originales/` (no se publica) |
+| file | string | Nombre de la foto procesada: `pedro-sanchez.webp`. Se sirve en `public/fotos/<baraja>/600/` y `/300/` |
+| original | string (URL) | Archivo original en Wikimedia Commons (`upload.wikimedia.org`, sin parámetros). El script lo descarga a `fotos-originales/`, que no se sube al repo |
 | author | string | Autor según la fuente |
 | license | string | `CC BY 4.0`, `CC BY-SA 3.0`, `Dominio público`… |
 | licenseUrl | string (URL) | Texto de la licencia |
 | sourceUrl | string (URL) | Página de la foto en la fuente (Commons, Congreso…) |
-| crop | { eyeX: number, eyeY: number, scale: number } | Punto medio entre los ojos (0–1) y escala, para el recorte uniforme |
+| crop | { eyeX: number, eyeY: number, scale: number } | Punto medio entre los ojos (fracción del ancho y del alto del original) y alto del recorte como fracción del alto del original. Lo propone `scripts/detectar-ojos.py` y se puede corregir a mano |
 
 ### GameState (en memoria / Durable Object)
 
@@ -145,9 +145,11 @@ erDiagram
   "sí".
 - No hay dos personajes con exactamente los mismos atributos (si no, sería imposible
   distinguirlos).
-- Toda foto tiene `author`, `license`, `licenseUrl` y `sourceUrl` (la lista de licencias admitidas
-  llega con la feature de las fotos).
-- Avisos que no fallan: personajes sin foto y atributos sin pregunta.
+- Toda foto tiene `author`, `license`, `licenseUrl` y `sourceUrl`, y la licencia es una de las
+  admitidas: CC0, CC BY, CC BY-SA (cualquier versión), dominio público o "Attribution" (plantilla
+  de Commons que permite reutilizar citando la fuente; la usan La Moncloa y la Generalitat).
+- Con `pnpm validar-baraja`, además, existen los dos tamaños de cada foto procesada.
+- Avisos que no fallan: atributos sin pregunta.
 
 ---
 

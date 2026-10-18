@@ -33,8 +33,8 @@ fichas que ya no encajan. Gana quien adivine antes el personaje del otro.
 ## Estado
 
 En desarrollo. La documentación del producto está cerrada y la fase 1 (partida completa contra la
-máquina) está en marcha: el proyecto, el motor del juego y la baraja de políticos ya existen; faltan
-las fotos, el tablero y la partida jugable. Después vendrán jugar contra otra persona, salas y barajas de otros
+máquina) está en marcha: el proyecto, el motor del juego, la baraja de políticos y sus fotos ya existen; faltan
+el tablero y la partida jugable. Después vendrán jugar contra otra persona, salas y barajas de otros
 temas: ver [`docs/roadmap.md`](docs/roadmap.md).
 
 ---
@@ -69,7 +69,29 @@ Comandos:
 | `pnpm test` | Tests unitarios (motor, máquina, baraja) |
 | `pnpm test:e2e` | Partidas completas con Playwright contra localhost |
 | `pnpm typecheck` | Comprueba los tipos |
-| `pnpm validar-baraja` | Comprueba el equilibrio, las fuentes y los textos de cada baraja |
+| `pnpm validar-baraja` | Comprueba el equilibrio, las fuentes y las fotos de cada baraja |
+| `pnpm procesar-fotos` | Regenera las fotos de los personajes (necesita el entorno de Python, ver abajo) |
+
+## Fotos de los personajes
+
+Las fotos procesadas ya están en `public/fotos/`, así que para jugar o desarrollar no hace falta
+nada más. Solo para regenerarlas (por ejemplo, al cambiar una foto en `deck.json`) se necesita un
+entorno de Python con `rembg` y OpenCV:
+
+```bash
+uv venv -p 3.14 .venv-fotos
+```
+
+```bash
+uv pip install -p .venv-fotos "rembg[cpu]" "opencv-python-headless<5"
+```
+
+```bash
+pnpm procesar-fotos
+```
+
+Los créditos de cada foto (autor, licencia y fuente en Wikimedia Commons) están en la página
+`/creditos` del juego.
 
 ## Despliegue
 

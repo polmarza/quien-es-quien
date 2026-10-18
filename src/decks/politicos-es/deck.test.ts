@@ -1,3 +1,5 @@
+import { existsSync } from 'node:fs';
+import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { validateDeck } from '../validate';
 import raw from './deck.json';
@@ -8,6 +10,19 @@ const yes = (attributeId: string) => deck.characters.filter((c) => c.attributes[
 describe('baraja politicos-es', () => {
   it('M-10 pasa el validador sin errores', () => {
     expect(validateDeck(raw).errors).toEqual([]);
+  });
+
+  it('M-11 cada foto viene de Wikimedia Commons, con autor, licencia admitida y sus dos tamaños procesados', () => {
+    const photos = join(process.cwd(), 'public', 'fotos', deck.id);
+    const report = validateDeck(raw, {
+      photoExists: (file) => existsSync(join(photos, '600', file)) && existsSync(join(photos, '300', file)),
+    });
+    expect(report.errors).toEqual([]);
+    for (const c of deck.characters) {
+      expect(c.photo.sourceUrl, c.id).toMatch(/^https:\/\/commons\.wikimedia\.org\/wiki\/File:/);
+      expect(c.photo.original, c.id).toMatch(/^https:\/\/upload\.wikimedia\.org\/[^?]+$/);
+      expect(c.photo.author.trim(), c.id).not.toBe('');
+    }
   });
 
   it('M-10 tiene 24 personajes: 12 mujeres y 12 de izquierda, 6 y 6 en cada bloque', () => {

@@ -85,8 +85,12 @@ con alguien. No quiere registrarse ni instalar nada.
   fichas levantadas por la mitad.
 - **[S-03] Historial de preguntas** — Dada una partida en curso, cuando se abre el historial,
   entonces aparecen todas las preguntas hechas por ambos jugadores con su respuesta.
-- **[S-04] Ficha de cada personaje** — Dado el tablero, cuando el jugador mantiene pulsada una
-  ficha, entonces ve el nombre completo, el cargo y la fecha de los datos.
+- **[S-04] Ficha de cada personaje** — Dado el tablero o la página de personajes, cuando el
+  jugador mantiene pulsada una ficha o abre un personaje, entonces ve su foto, nombre completo,
+  partido, cargo, la fecha de los datos y un texto breve que se lee de corrido y contiene la
+  respuesta a cada pregunta del juego.
+  *Negativo:* dado un personaje cuyo texto no cubre alguna de las preguntas de la baraja, cuando
+  se validan las barajas, entonces falla y dice qué pregunta falta.
 
 - **[S-05] Girar el tablero en escritorio** — Dado un navegador de escritorio, cuando el jugador
   arrastra sobre el tablero, entonces este gira como máximo ±25° a los lados sin mostrar nunca el
