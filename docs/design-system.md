@@ -139,8 +139,8 @@ Las fotos vienen de fuentes distintas y se normalizan para que parezcan del mism
 Un juego de mesa de verdad sobre una mesa de verdad: plástico, fotos reales y luz cálida. Debe
 parecer un objeto que da ganas de tocar, no una app de concurso de televisión ni un panfleto
 político. Neutral en lo visual: el juego no se pone de parte de nadie, aunque los tableros lleven por
-defecto el rojo y el azul clásicos. El humor, si se elige,
-está en los textos, nunca en la imagen de los personajes.
+defecto el rojo y el azul clásicos. Los textos son sobrios: las preguntas se escriben en tono
+neutral.
 
 No debe parecer: una web de noticias, un mitin, un juego infantil de dibujos animados ni un
 casino con brillos.

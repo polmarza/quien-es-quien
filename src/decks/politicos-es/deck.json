@@ -1,0 +1,730 @@
+{
+  "id": "politicos-es",
+  "name": "Políticos de España",
+  "version": "1.0.0",
+  "dataAsOf": "2026-10-16",
+  "boardColors": [
+    {
+      "id": "rojo",
+      "label": "Rojo",
+      "base": "#C8262C",
+      "shade": "#8F1A1F"
+    },
+    {
+      "id": "azul",
+      "label": "Azul",
+      "base": "#2F86C9",
+      "shade": "#1F5F93"
+    }
+  ],
+  "defaultColors": {
+    "player": "rojo",
+    "rival": "azul"
+  },
+  "attributes": [
+    {
+      "id": "mujer",
+      "kind": "identidad",
+      "source": "Biografías de cada personaje",
+      "core": true
+    },
+    {
+      "id": "izquierda",
+      "kind": "identidad",
+      "source": "Posición habitual de su partido en el eje izquierda-derecha; Junts y Cs se cuentan en la derecha (docs/data-model.md)",
+      "core": true
+    },
+    {
+      "id": "consejo-ministros",
+      "kind": "trayectoria",
+      "source": "La Moncloa, Gobiernos por legislaturas (incluye presidentes y vicepresidentes): https://www.lamoncloa.gob.es/gobierno/gobiernosporlegislaturas/Paginas/index.aspx"
+    },
+    {
+      "id": "candidato-presidente",
+      "kind": "trayectoria",
+      "source": "Cabeza de cartel de su partido a la presidencia del Gobierno en unas generales (Wikipedia y prensa)"
+    },
+    {
+      "id": "nacido-antes-1975",
+      "kind": "trayectoria",
+      "source": "Fecha de nacimiento en biografías oficiales y Wikipedia"
+    },
+    {
+      "id": "nacido-anos-70",
+      "kind": "trayectoria",
+      "source": "Fecha de nacimiento en biografías oficiales y Wikipedia"
+    },
+    {
+      "id": "partido-nuevo",
+      "kind": "trayectoria",
+      "source": "Fecha de fundación del partido con el que se le identifica: Podemos 2014, Vox 2013, Más Madrid 2019, Junts 2020, Barcelona en Comú 2015, Sumar 2023 (Wikipedia de cada partido)"
+    },
+    {
+      "id": "apoyo-investidura-sanchez",
+      "kind": "ideologia",
+      "source": "Votaciones de investidura en el Congreso: 2-4 mar 2016 (PSOE y Cs a favor), 7 ene 2020, 16 nov 2023 (PSOE, Sumar —con Podemos, IU, Más Madrid y Comuns—, ERC, Junts, Bildu, PNV, BNG, CC). Fuentes: https://www.3cat.cat/3catinfo/el-congres-dels-diputats-rebutja-la-investidura-de-pedro-sanchez-amb-130-vots-a-favor-219-en-contra-i-1-abstencio/noticia-amp/2716665/ y https://elderecho.com/pedro-sanchez-investido-como-presidente-del-gobierno"
+    },
+    {
+      "id": "estudio-derecho",
+      "kind": "trayectoria",
+      "source": "Formación en biografías oficiales y Wikipedia"
+    },
+    {
+      "id": "concejal",
+      "kind": "trayectoria",
+      "source": "Biografías oficiales y Wikipedia (una alcaldía cuenta: el alcalde es concejal)"
+    },
+    {
+      "id": "parlamento-autonomico",
+      "kind": "trayectoria",
+      "source": "Biografías oficiales y Wikipedia: escaño ocupado en un parlamento o asamblea autonómica. Pablo Iglesias ganó acta en la Asamblea de Madrid en 2021 pero renunció sin ocuparla: cuenta como no (https://maldita.es/malditahemeroteca/20210505/pablo-iglesias-clarisimamente-diputado-asamblea-madrid/)"
+    },
+    {
+      "id": "nacio-lengua-cooficial",
+      "kind": "trayectoria",
+      "source": "Lugar de nacimiento en biografías oficiales y Wikipedia; comunidades con lengua cooficial: Cataluña, Galicia, País Vasco, Navarra, Comunidad Valenciana e Islas Baleares"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q-mujer",
+      "attributeId": "mujer",
+      "text": "¿Es mujer?"
+    },
+    {
+      "id": "q-izquierda",
+      "attributeId": "izquierda",
+      "text": "¿Es de izquierdas?"
+    },
+    {
+      "id": "q-consejo-ministros",
+      "attributeId": "consejo-ministros",
+      "text": "¿Ha formado parte del Consejo de Ministros?"
+    },
+    {
+      "id": "q-parlamento-autonomico",
+      "attributeId": "parlamento-autonomico",
+      "text": "¿Ha ocupado escaño en un parlamento autonómico?"
+    },
+    {
+      "id": "q-candidato-presidente",
+      "attributeId": "candidato-presidente",
+      "text": "¿Ha sido el candidato de su partido a presidir el Gobierno en unas generales?"
+    },
+    {
+      "id": "q-nacido-antes-1975",
+      "attributeId": "nacido-antes-1975",
+      "text": "¿Nació antes de 1975?"
+    },
+    {
+      "id": "q-nacido-anos-70",
+      "attributeId": "nacido-anos-70",
+      "text": "¿Nació en los años setenta?"
+    },
+    {
+      "id": "q-partido-nuevo",
+      "attributeId": "partido-nuevo",
+      "text": "¿Su partido se fundó después de 2010?"
+    },
+    {
+      "id": "q-apoyo-investidura-sanchez",
+      "attributeId": "apoyo-investidura-sanchez",
+      "text": "¿Su partido ha votado sí en alguna investidura de Pedro Sánchez?"
+    },
+    {
+      "id": "q-estudio-derecho",
+      "attributeId": "estudio-derecho",
+      "text": "¿Estudió Derecho?"
+    },
+    {
+      "id": "q-concejal",
+      "attributeId": "concejal",
+      "text": "¿Ha sido concejal?"
+    },
+    {
+      "id": "q-nacio-lengua-cooficial",
+      "attributeId": "nacio-lengua-cooficial",
+      "text": "¿Nació en una comunidad autónoma con lengua cooficial?"
+    }
+  ],
+  "characters": [
+    {
+      "id": "yolanda-diaz",
+      "name": "Yolanda Díaz",
+      "fullName": "Yolanda Díaz Pérez",
+      "role": "Vicepresidenta segunda y ministra de Trabajo (Sumar)",
+      "attributes": {
+        "mujer": true,
+        "izquierda": true,
+        "consejo-ministros": true,
+        "candidato-presidente": true,
+        "nacido-antes-1975": true,
+        "nacido-anos-70": true,
+        "partido-nuevo": true,
+        "apoyo-investidura-sanchez": true,
+        "estudio-derecho": true,
+        "concejal": true,
+        "parlamento-autonomico": true,
+        "nacio-lengua-cooficial": true
+      },
+      "sources": [
+        "https://www.lamoncloa.gob.es/gobierno/Paginas/biografias-xv-legislatura/ministra-yolanda-diaz.aspx",
+        "https://es.wikipedia.org/wiki/Yolanda_D%C3%ADaz"
+      ]
+    },
+    {
+      "id": "maria-jesus-montero",
+      "name": "María Jesús Montero",
+      "fullName": "María Jesús Montero Cuadrado",
+      "role": "Secretaria general del PSOE de Andalucía; exvicepresidenta del Gobierno",
+      "attributes": {
+        "mujer": true,
+        "izquierda": true,
+        "consejo-ministros": true,
+        "candidato-presidente": false,
+        "nacido-antes-1975": true,
+        "nacido-anos-70": false,
+        "partido-nuevo": false,
+        "apoyo-investidura-sanchez": true,
+        "estudio-derecho": false,
+        "concejal": false,
+        "parlamento-autonomico": true,
+        "nacio-lengua-cooficial": false
+      },
+      "sources": [
+        "https://www.lamoncloa.gob.es/gobierno/Paginas/biografias-xv-legislatura/ministra-maria-jesus-montero.aspx",
+        "https://es.wikipedia.org/wiki/Mar%C3%ADa_Jes%C3%BAs_Montero"
+      ]
+    },
+    {
+      "id": "ada-colau",
+      "name": "Ada Colau",
+      "fullName": "Ada Colau Ballano",
+      "role": "Exalcaldesa de Barcelona (Barcelona en Comú)",
+      "attributes": {
+        "mujer": true,
+        "izquierda": true,
+        "consejo-ministros": false,
+        "candidato-presidente": false,
+        "nacido-antes-1975": true,
+        "nacido-anos-70": true,
+        "partido-nuevo": true,
+        "apoyo-investidura-sanchez": true,
+        "estudio-derecho": false,
+        "concejal": true,
+        "parlamento-autonomico": false,
+        "nacio-lengua-cooficial": true
+      },
+      "sources": [
+        "https://apidocs.barcelona.cat/retribucions_pro/ALC_AJB_Ada%20Colau%20Ballano_CVCS.pdf",
+        "https://es.wikipedia.org/wiki/Ada_Colau"
+      ]
+    },
+    {
+      "id": "irene-montero",
+      "name": "Irene Montero",
+      "fullName": "Irene María Montero Gil",
+      "role": "Eurodiputada y secretaria política de Podemos",
+      "attributes": {
+        "mujer": true,
+        "izquierda": true,
+        "consejo-ministros": true,
+        "candidato-presidente": false,
+        "nacido-antes-1975": false,
+        "nacido-anos-70": false,
+        "partido-nuevo": true,
+        "apoyo-investidura-sanchez": true,
+        "estudio-derecho": false,
+        "concejal": false,
+        "parlamento-autonomico": false,
+        "nacio-lengua-cooficial": false
+      },
+      "sources": [
+        "https://www.lamoncloa.gob.es/gobierno/gobiernosporlegislaturas/Paginas/xiv_legislatura.aspx",
+        "https://es.wikipedia.org/wiki/Irene_Montero"
+      ]
+    },
+    {
+      "id": "monica-garcia",
+      "name": "Mónica García",
+      "fullName": "Mónica García Gómez",
+      "role": "Ministra de Sanidad (Más Madrid)",
+      "attributes": {
+        "mujer": true,
+        "izquierda": true,
+        "consejo-ministros": true,
+        "candidato-presidente": false,
+        "nacido-antes-1975": true,
+        "nacido-anos-70": true,
+        "partido-nuevo": true,
+        "apoyo-investidura-sanchez": true,
+        "estudio-derecho": false,
+        "concejal": false,
+        "parlamento-autonomico": true,
+        "nacio-lengua-cooficial": false
+      },
+      "sources": [
+        "https://www.lamoncloa.gob.es/gobierno/Paginas/biografias-xv-legislatura/ministra-monica-garcia.aspx",
+        "https://es.wikipedia.org/wiki/M%C3%B3nica_Garc%C3%ADa_G%C3%B3mez"
+      ]
+    },
+    {
+      "id": "ana-ponton",
+      "name": "Ana Pontón",
+      "fullName": "Ana Belén Pontón Mondelo",
+      "role": "Portavoz nacional del BNG",
+      "attributes": {
+        "mujer": true,
+        "izquierda": true,
+        "consejo-ministros": false,
+        "candidato-presidente": false,
+        "nacido-antes-1975": false,
+        "nacido-anos-70": true,
+        "partido-nuevo": false,
+        "apoyo-investidura-sanchez": true,
+        "estudio-derecho": false,
+        "concejal": false,
+        "parlamento-autonomico": true,
+        "nacio-lengua-cooficial": true
+      },
+      "sources": [
+        "https://es.wikipedia.org/wiki/Ana_Pont%C3%B3n",
+        "https://www.eldiario.es/galicia/ana-ponton-llega-18f-antagonista-indiscutible-rueda-primera-vez-opciones-presidir-xunta_1_10932257.html"
+      ]
+    },
+    {
+      "id": "pedro-sanchez",
+      "name": "Pedro Sánchez",
+      "fullName": "Pedro Sánchez Pérez-Castejón",
+      "role": "Presidente del Gobierno y secretario general del PSOE",
+      "attributes": {
+        "mujer": false,
+        "izquierda": true,
+        "consejo-ministros": true,
+        "candidato-presidente": true,
+        "nacido-antes-1975": true,
+        "nacido-anos-70": true,
+        "partido-nuevo": false,
+        "apoyo-investidura-sanchez": true,
+        "estudio-derecho": false,
+        "concejal": true,
+        "parlamento-autonomico": false,
+        "nacio-lengua-cooficial": false
+      },
+      "sources": [
+        "https://www.lamoncloa.gob.es/presidente/biografia/Paginas/index.aspx",
+        "https://es.wikipedia.org/wiki/Pedro_S%C3%A1nchez"
+      ]
+    },
+    {
+      "id": "salvador-illa",
+      "name": "Salvador Illa",
+      "fullName": "Salvador Illa Roca",
+      "role": "President de la Generalitat de Catalunya (PSC)",
+      "attributes": {
+        "mujer": false,
+        "izquierda": true,
+        "consejo-ministros": true,
+        "candidato-presidente": false,
+        "nacido-antes-1975": true,
+        "nacido-anos-70": false,
+        "partido-nuevo": false,
+        "apoyo-investidura-sanchez": true,
+        "estudio-derecho": false,
+        "concejal": true,
+        "parlamento-autonomico": true,
+        "nacio-lengua-cooficial": true
+      },
+      "sources": [
+        "https://catalangovernment.eu/catalangovernment/president",
+        "https://www.lamoncloa.gob.es/gobierno/gobiernosporlegislaturas/Paginas/xiv_legislatura.aspx",
+        "https://es.wikipedia.org/wiki/Salvador_Illa"
+      ]
+    },
+    {
+      "id": "oscar-puente",
+      "name": "Óscar Puente",
+      "fullName": "Óscar Puente Santiago",
+      "role": "Ministro de Transportes (PSOE)",
+      "attributes": {
+        "mujer": false,
+        "izquierda": true,
+        "consejo-ministros": true,
+        "candidato-presidente": false,
+        "nacido-antes-1975": true,
+        "nacido-anos-70": false,
+        "partido-nuevo": false,
+        "apoyo-investidura-sanchez": true,
+        "estudio-derecho": true,
+        "concejal": true,
+        "parlamento-autonomico": false,
+        "nacio-lengua-cooficial": false
+      },
+      "sources": [
+        "https://www.lamoncloa.gob.es/gobierno/Paginas/biografias-xv-legislatura/ministro-oscar-puente.aspx",
+        "https://es.wikipedia.org/wiki/%C3%93scar_Puente"
+      ]
+    },
+    {
+      "id": "gabriel-rufian",
+      "name": "Gabriel Rufián",
+      "fullName": "Juan Gabriel Rufián Romero",
+      "role": "Portavoz de ERC en el Congreso",
+      "attributes": {
+        "mujer": false,
+        "izquierda": true,
+        "consejo-ministros": false,
+        "candidato-presidente": false,
+        "nacido-antes-1975": false,
+        "nacido-anos-70": false,
+        "partido-nuevo": false,
+        "apoyo-investidura-sanchez": true,
+        "estudio-derecho": false,
+        "concejal": true,
+        "parlamento-autonomico": false,
+        "nacio-lengua-cooficial": true
+      },
+      "sources": [
+        "https://es.wikipedia.org/wiki/Gabriel_Rufi%C3%A1n",
+        "https://es.ara.cat/politica/rufian-pliega-concejal-santa-coloma-gramenet_1_5257643.html"
+      ]
+    },
+    {
+      "id": "pablo-iglesias",
+      "name": "Pablo Iglesias",
+      "fullName": "Pablo Iglesias Turrión",
+      "role": "Exvicepresidente del Gobierno y fundador de Podemos",
+      "attributes": {
+        "mujer": false,
+        "izquierda": true,
+        "consejo-ministros": true,
+        "candidato-presidente": true,
+        "nacido-antes-1975": false,
+        "nacido-anos-70": true,
+        "partido-nuevo": true,
+        "apoyo-investidura-sanchez": true,
+        "estudio-derecho": true,
+        "concejal": false,
+        "parlamento-autonomico": false,
+        "nacio-lengua-cooficial": false
+      },
+      "sources": [
+        "https://www.lamoncloa.gob.es/gobierno/gobiernosporlegislaturas/Paginas/xiv_legislatura.aspx",
+        "https://es.wikipedia.org/wiki/Pablo_Iglesias_Turri%C3%B3n"
+      ]
+    },
+    {
+      "id": "alberto-garzon",
+      "name": "Alberto Garzón",
+      "fullName": "Alberto Carlos Garzón Espinosa",
+      "role": "Exministro de Consumo y excoordinador federal de IU",
+      "attributes": {
+        "mujer": false,
+        "izquierda": true,
+        "consejo-ministros": true,
+        "candidato-presidente": true,
+        "nacido-antes-1975": false,
+        "nacido-anos-70": false,
+        "partido-nuevo": false,
+        "apoyo-investidura-sanchez": true,
+        "estudio-derecho": false,
+        "concejal": false,
+        "parlamento-autonomico": false,
+        "nacio-lengua-cooficial": false
+      },
+      "sources": [
+        "https://www.lamoncloa.gob.es/gobierno/gobiernosporlegislaturas/Paginas/xiv_legislatura.aspx",
+        "https://es.wikipedia.org/wiki/Alberto_Garz%C3%B3n"
+      ]
+    },
+    {
+      "id": "isabel-diaz-ayuso",
+      "name": "Isabel Díaz Ayuso",
+      "fullName": "Isabel Natividad Díaz Ayuso",
+      "role": "Presidenta de la Comunidad de Madrid (PP)",
+      "attributes": {
+        "mujer": true,
+        "izquierda": false,
+        "consejo-ministros": false,
+        "candidato-presidente": false,
+        "nacido-antes-1975": false,
+        "nacido-anos-70": true,
+        "partido-nuevo": false,
+        "apoyo-investidura-sanchez": false,
+        "estudio-derecho": false,
+        "concejal": false,
+        "parlamento-autonomico": true,
+        "nacio-lengua-cooficial": false
+      },
+      "sources": [
+        "https://www.comunidad.madrid/transparencia/node/69617",
+        "https://es.wikipedia.org/wiki/Isabel_D%C3%ADaz_Ayuso"
+      ]
+    },
+    {
+      "id": "cuca-gamarra",
+      "name": "Cuca Gamarra",
+      "fullName": "María Concepción Gamarra Ruiz-Clavijo",
+      "role": "Exsecretaria general del PP y exalcaldesa de Logroño",
+      "attributes": {
+        "mujer": true,
+        "izquierda": false,
+        "consejo-ministros": false,
+        "candidato-presidente": false,
+        "nacido-antes-1975": true,
+        "nacido-anos-70": true,
+        "partido-nuevo": false,
+        "apoyo-investidura-sanchez": false,
+        "estudio-derecho": true,
+        "concejal": true,
+        "parlamento-autonomico": false,
+        "nacio-lengua-cooficial": false
+      },
+      "sources": [
+        "https://es.wikipedia.org/wiki/Cuca_Gamarra",
+        "https://nuevecuatrouno.com/2022/03/31/cuca-gamarra-perfil-nueva-secretaria-general-pp/"
+      ]
+    },
+    {
+      "id": "esperanza-aguirre",
+      "name": "Esperanza Aguirre",
+      "fullName": "Esperanza Aguirre y Gil de Biedma",
+      "role": "Expresidenta de la Comunidad de Madrid y del Senado (PP)",
+      "attributes": {
+        "mujer": true,
+        "izquierda": false,
+        "consejo-ministros": true,
+        "candidato-presidente": false,
+        "nacido-antes-1975": true,
+        "nacido-anos-70": false,
+        "partido-nuevo": false,
+        "apoyo-investidura-sanchez": false,
+        "estudio-derecho": true,
+        "concejal": true,
+        "parlamento-autonomico": true,
+        "nacio-lengua-cooficial": false
+      },
+      "sources": [
+        "https://www.lamoncloa.gob.es/gobierno/gobiernosporlegislaturas/Paginas/VI%20Legislatura.aspx",
+        "https://es.wikipedia.org/wiki/Esperanza_Aguirre"
+      ]
+    },
+    {
+      "id": "ines-arrimadas",
+      "name": "Inés Arrimadas",
+      "fullName": "Inés Arrimadas García",
+      "role": "Expresidenta de Ciudadanos",
+      "attributes": {
+        "mujer": true,
+        "izquierda": false,
+        "consejo-ministros": false,
+        "candidato-presidente": false,
+        "nacido-antes-1975": false,
+        "nacido-anos-70": false,
+        "partido-nuevo": false,
+        "apoyo-investidura-sanchez": true,
+        "estudio-derecho": true,
+        "concejal": false,
+        "parlamento-autonomico": true,
+        "nacio-lengua-cooficial": false
+      },
+      "sources": [
+        "https://es.wikipedia.org/wiki/In%C3%A9s_Arrimadas",
+        "https://www.enciclopedia.cat/EC-GEC-21786261"
+      ]
+    },
+    {
+      "id": "rocio-monasterio",
+      "name": "Rocío Monasterio",
+      "fullName": "Rocío Monasterio San Martín",
+      "role": "Expresidenta de Vox en Madrid",
+      "attributes": {
+        "mujer": true,
+        "izquierda": false,
+        "consejo-ministros": false,
+        "candidato-presidente": false,
+        "nacido-antes-1975": true,
+        "nacido-anos-70": true,
+        "partido-nuevo": true,
+        "apoyo-investidura-sanchez": false,
+        "estudio-derecho": false,
+        "concejal": false,
+        "parlamento-autonomico": true,
+        "nacio-lengua-cooficial": false
+      },
+      "sources": [
+        "https://es.wikipedia.org/wiki/Roc%C3%ADo_Monasterio",
+        "https://en.wikipedia.org/wiki/Roc%C3%ADo_Monasterio"
+      ]
+    },
+    {
+      "id": "miriam-nogueras",
+      "name": "Míriam Nogueras",
+      "fullName": "Míriam Nogueras i Camero",
+      "role": "Portavoz de Junts en el Congreso",
+      "attributes": {
+        "mujer": true,
+        "izquierda": false,
+        "consejo-ministros": false,
+        "candidato-presidente": false,
+        "nacido-antes-1975": false,
+        "nacido-anos-70": false,
+        "partido-nuevo": true,
+        "apoyo-investidura-sanchez": true,
+        "estudio-derecho": false,
+        "concejal": true,
+        "parlamento-autonomico": false,
+        "nacio-lengua-cooficial": true
+      },
+      "sources": [
+        "https://es.wikipedia.org/wiki/M%C3%ADriam_Nogueras",
+        "https://en.ara.cat/politics/miriam-nogueras-the-junts-boxer-in-madrid_129_5563377.html"
+      ]
+    },
+    {
+      "id": "alberto-nunez-feijoo",
+      "name": "Alberto Núñez Feijóo",
+      "fullName": "Alberto Núñez Feijóo",
+      "role": "Presidente del PP",
+      "attributes": {
+        "mujer": false,
+        "izquierda": false,
+        "consejo-ministros": false,
+        "candidato-presidente": true,
+        "nacido-antes-1975": true,
+        "nacido-anos-70": false,
+        "partido-nuevo": false,
+        "apoyo-investidura-sanchez": false,
+        "estudio-derecho": true,
+        "concejal": false,
+        "parlamento-autonomico": true,
+        "nacio-lengua-cooficial": true
+      },
+      "sources": [
+        "https://es.wikipedia.org/wiki/Alberto_N%C3%BA%C3%B1ez_Feij%C3%B3o",
+        "https://en.wikipedia.org/wiki/Alberto_N%C3%BA%C3%B1ez_Feij%C3%B3o"
+      ]
+    },
+    {
+      "id": "juanma-moreno",
+      "name": "Juanma Moreno",
+      "fullName": "Juan Manuel Moreno Bonilla",
+      "role": "Presidente de la Junta de Andalucía (PP)",
+      "attributes": {
+        "mujer": false,
+        "izquierda": false,
+        "consejo-ministros": false,
+        "candidato-presidente": false,
+        "nacido-antes-1975": true,
+        "nacido-anos-70": true,
+        "partido-nuevo": false,
+        "apoyo-investidura-sanchez": false,
+        "estudio-derecho": false,
+        "concejal": true,
+        "parlamento-autonomico": true,
+        "nacio-lengua-cooficial": true
+      },
+      "sources": [
+        "https://www.juntadeandalucia.es/organismos/presidente/biografia.html",
+        "https://es.wikipedia.org/wiki/Juanma_Moreno"
+      ]
+    },
+    {
+      "id": "mariano-rajoy",
+      "name": "Mariano Rajoy",
+      "fullName": "Mariano Rajoy Brey",
+      "role": "Expresidente del Gobierno (PP)",
+      "attributes": {
+        "mujer": false,
+        "izquierda": false,
+        "consejo-ministros": true,
+        "candidato-presidente": true,
+        "nacido-antes-1975": true,
+        "nacido-anos-70": false,
+        "partido-nuevo": false,
+        "apoyo-investidura-sanchez": false,
+        "estudio-derecho": true,
+        "concejal": true,
+        "parlamento-autonomico": true,
+        "nacio-lengua-cooficial": true
+      },
+      "sources": [
+        "https://www.cidob.org/lider-politico/mariano-rajoy-brey",
+        "https://www.lamoncloa.gob.es/gobierno/gobiernosporlegislaturas/Paginas/VI%20Legislatura.aspx",
+        "https://es.wikipedia.org/wiki/Mariano_Rajoy"
+      ]
+    },
+    {
+      "id": "santiago-abascal",
+      "name": "Santiago Abascal",
+      "fullName": "Santiago Abascal Conde",
+      "role": "Presidente de Vox",
+      "attributes": {
+        "mujer": false,
+        "izquierda": false,
+        "consejo-ministros": false,
+        "candidato-presidente": true,
+        "nacido-antes-1975": false,
+        "nacido-anos-70": true,
+        "partido-nuevo": true,
+        "apoyo-investidura-sanchez": false,
+        "estudio-derecho": false,
+        "concejal": true,
+        "parlamento-autonomico": true,
+        "nacio-lengua-cooficial": true
+      },
+      "sources": [
+        "https://es.wikipedia.org/wiki/Santiago_Abascal",
+        "https://en.wikipedia.org/wiki/Santiago_Abascal"
+      ]
+    },
+    {
+      "id": "albert-rivera",
+      "name": "Albert Rivera",
+      "fullName": "Albert Rivera Díaz",
+      "role": "Expresidente de Ciudadanos",
+      "attributes": {
+        "mujer": false,
+        "izquierda": false,
+        "consejo-ministros": false,
+        "candidato-presidente": true,
+        "nacido-antes-1975": false,
+        "nacido-anos-70": true,
+        "partido-nuevo": false,
+        "apoyo-investidura-sanchez": true,
+        "estudio-derecho": true,
+        "concejal": false,
+        "parlamento-autonomico": true,
+        "nacio-lengua-cooficial": true
+      },
+      "sources": [
+        "https://es.wikipedia.org/wiki/Albert_Rivera",
+        "https://www.elindependiente.com/politica/2019/03/10/rivera-emocionado-celebra-candidatura-la-presidencia-del-gobierno/amp/"
+      ]
+    },
+    {
+      "id": "carles-puigdemont",
+      "name": "Carles Puigdemont",
+      "fullName": "Carles Puigdemont i Casamajó",
+      "role": "Presidente de Junts; expresident de la Generalitat",
+      "attributes": {
+        "mujer": false,
+        "izquierda": false,
+        "consejo-ministros": false,
+        "candidato-presidente": false,
+        "nacido-antes-1975": true,
+        "nacido-anos-70": false,
+        "partido-nuevo": true,
+        "apoyo-investidura-sanchez": true,
+        "estudio-derecho": false,
+        "concejal": true,
+        "parlamento-autonomico": true,
+        "nacio-lengua-cooficial": true
+      },
+      "sources": [
+        "https://es.wikipedia.org/wiki/Carles_Puigdemont",
+        "https://www.vilaweb.cat/noticies/who-is-carles-puigdemont/"
+      ]
+    }
+  ]
+}

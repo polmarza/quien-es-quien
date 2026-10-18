@@ -28,19 +28,17 @@ Reglas de la partida que aplican a todos los flujos:
 
 ### Pasos
 
-1. Ve la pantalla de inicio: título, elección de tono ("Neutral" / "Con humor") y botón "Jugar".
-2. Elige tono (por defecto, el último elegido o "Neutral") — M-12.
-3. Pulsa "Jugar".
-4. Aparece el tablero con las 24 fichas levantadas — M-01, su carta secreta en la ranura
+1. Ve la pantalla de inicio: título y botón "Jugar".
+2. Pulsa "Jugar".
+3. Aparece el tablero con las 24 fichas levantadas — M-01, su carta secreta en la ranura
    delantera — M-02 y, arriba, la ficha del rival con "24" — M-07.
-5. Un aviso indica quién empieza.
+4. Un aviso indica quién empieza.
 
 ### Diagrama
 
 ```mermaid
 flowchart TD
-  A[Pantalla de inicio] --> B[Elige tono]
-  B --> C[Pulsa Jugar]
+  A[Pantalla de inicio] --> C[Pulsa Jugar]
   C --> D[Reparto con semilla: secreto del jugador y de la máquina]
   D --> E{¿Quién empieza?}
   E -->|Jugador| F[FLOW-02]

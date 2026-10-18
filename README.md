@@ -28,14 +28,13 @@ fichas que ya no encajan. Gana quien adivine antes el personaje del otro.
 - **Preguntas con respuesta comprobable.** Trayectoria y programa del partido, con fuente. Nada
   sobre el aspecto físico, salvo el sexo.
 - **Fichas que caen de verdad.** Tablero visto a 45°, fichas con bisagra que caen en cascada.
-- **Dos tonos:** neutral o con humor, a elegir al empezar. Cambia la redacción, no los datos.
 - **Fotos con licencia libre**, con autor y fuente en la página de créditos.
 
 ## Estado
 
 En desarrollo. La documentación del producto está cerrada y la fase 1 (partida completa contra la
-máquina) está en marcha: el proyecto y el motor del juego ya existen; faltan la baraja, el tablero
-y la partida jugable. Después vendrán jugar contra otra persona, salas y barajas de otros
+máquina) está en marcha: el proyecto, el motor del juego y la baraja de políticos ya existen; faltan
+las fotos, el tablero y la partida jugable. Después vendrán jugar contra otra persona, salas y barajas de otros
 temas: ver [`docs/roadmap.md`](docs/roadmap.md).
 
 ---
@@ -70,7 +69,7 @@ Comandos:
 | `pnpm test` | Tests unitarios (motor, máquina, baraja) |
 | `pnpm test:e2e` | Partidas completas con Playwright contra localhost |
 | `pnpm typecheck` | Comprueba los tipos |
-| `pnpm validar-baraja` | (pendiente) Comprueba el equilibrio y los créditos de cada baraja |
+| `pnpm validar-baraja` | Comprueba el equilibrio, las fuentes y los textos de cada baraja |
 
 ## Despliegue
 

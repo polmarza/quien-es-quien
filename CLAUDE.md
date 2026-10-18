@@ -70,7 +70,7 @@ El procedimiento completo —comprobar lo ya configurado, elegir alcance (`user`
 **Nombre:** Quién es quién
 **Descripción:** Juego de navegador del estilo "¿quién es quién?" con políticos españoles
 fotorrealistas, para jugar contra la máquina (y más adelante contra otra persona).
-**Estado actual:** En desarrollo (fase 1: andamiaje y motor hechos; siguen baraja, fotos y tablero)
+**Estado actual:** En desarrollo (fase 1: andamiaje, motor y baraja hechos; siguen fotos y tablero)
 
 ---
 
@@ -124,7 +124,8 @@ allí cuando exista el código.
   heredado). Un procedimiento nuevo es una skill en `.claude/skills/<nombre>/SKILL.md`, con una
   `description` que diga qué hace y cuándo usarla: Claude la carga sola cuando toca.
 - No añadir preguntas sobre el aspecto físico de los personajes (solo el sexo), ni preguntas
-  cuya respuesta sea discutible o no tenga fuente. Ver `docs/data-model.md`.
+  cuya respuesta sea discutible o no tenga fuente, ni preguntas dobles unidas con "o". Las
+  preguntas van en tono neutral, sin versión de humor. Ver `docs/data-model.md`.
 - No usar fotos sin licencia que permita reutilizarlas ni sin autor, licencia y fuente en
   `deck.json`. No generar ni retocar caras con IA.
 - No usar colores de partido en la interfaz (botones, avisos); solo en los tableros.

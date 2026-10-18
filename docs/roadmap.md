@@ -15,13 +15,13 @@ construcción previsto:
       variables CSS, `wrangler.jsonc`.
 - [x] **Motor del juego** (sin interfaz): reparto con semilla, turnos, preguntas, fichas que
       encajan, adivinar, fin de partida y la máquina en modo fácil — M-02, M-03, M-06, M-08, M-09.
-- [ ] **Baraja `politicos-es`:** datos con fuente de los 24 personajes, preguntas en los dos tonos
-      y validador de equilibrio — M-10, M-12 (textos).
+- [x] **Baraja `politicos-es`:** datos con fuente de los 24 personajes, 12 preguntas y
+      validador de equilibrio — M-10.
 - [ ] **Fotos:** búsqueda de fotos con licencia, script de procesado y créditos — M-11.
 - [ ] **Tablero 3D:** vista a 45°, fichas con bisagra, caída en cascada, bajar y levantar a mano —
       M-01, M-04, M-05.
-- [ ] **Partida jugable:** pantalla de inicio con tono, carta secreta, lista de preguntas,
-      contador del rival, adivinar y pantalla final — M-07, M-12.
+- [ ] **Partida jugable:** pantalla de inicio, carta secreta, lista de preguntas,
+      contador del rival, adivinar y pantalla final — M-07.
 - [ ] **Revisión del prototipo:** ajustar ángulo, cámara y aspecto del plástico a ojo.
 - [ ] **Publicación:** repo en GitHub conectado a Cloudflare (lo hace el usuario).
 
@@ -35,8 +35,8 @@ bien en el móvil.
 
 Se concreta al terminar la fase 1, con lo que se aprenda jugando. Candidatos:
 
-- [ ] Más variedad de preguntas (trayectoria e ideología que crucen bloques), siempre pasando el
-      validador.
+- [ ] Más variedad de preguntas (12 en la versión 1.0.0 de la baraja): trayectoria e ideología
+      que crucen bloques, siempre pasando el validador.
 - [ ] Máquina con dificultad "Difícil" — S-01.
 - [ ] Historial de preguntas — S-03.
 - [ ] Ficha ampliada de cada personaje — S-04.
@@ -61,6 +61,7 @@ Se concreta al terminar la fase 1, con lo que se aprenda jugando. Candidatos:
 | Funcionalidad | Motivo del descarte |
 |---------------|---------------------|
 | Preguntas físicas (gafas, barba, pelo…) | Decisión del usuario: solo se pregunta el sexo como rasgo personal; el resto, datos de trayectoria e ideología del partido. |
+| Tono "Con humor" en las preguntas | Decisión del usuario (2026-10-18): solo tono neutral. |
 | Preguntas libres o respuestas con IA | La máquina tiene que poder responder sin error sobre personas reales. |
 | Caras generadas con IA | Los personajes son personas reales. |
 | Dibujar el tablero del rival | Basta una ficha con el número de fichas que le quedan. |

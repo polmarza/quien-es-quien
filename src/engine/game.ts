@@ -1,10 +1,9 @@
 import type { Deck } from '../decks/schema';
 import { pick, seedToRng } from './random';
-import type { Difficulty, GameError, GameState, PlayerId, Result, Tone, Turn } from './types';
+import type { Difficulty, GameError, GameState, PlayerId, Result, Turn } from './types';
 
 export interface NewGameOptions {
   seed: number;
-  tone?: Tone;
   difficulty?: Difficulty;
   colors?: Partial<Record<PlayerId, string>>;
 }
@@ -32,7 +31,6 @@ export function createGame(deck: Deck, options: NewGameOptions): GameState {
     seed: options.seed,
     rng,
     deckId: deck.id,
-    tone: options.tone ?? 'neutral',
     difficulty: options.difficulty ?? 'facil',
     phase: 'jugando',
     turn: first.value,
@@ -125,7 +123,6 @@ export function setTiles(state: GameState, deck: Deck, player: PlayerId, charact
 export interface PlayerView {
   phase: GameState['phase'];
   turn: PlayerId;
-  tone: Tone;
   me: { secretId: string; upIds: string[]; color: string };
   /** Del rival solo se ve cuántas fichas le quedan; su secreto, al terminar (M-07, M-09). */
   rival: { upCount: number; color: string; secretId: string | null };
@@ -140,7 +137,6 @@ export function playerView(state: GameState, viewer: PlayerId): PlayerView {
   return {
     phase: state.phase,
     turn: state.turn,
-    tone: state.tone,
     me: { secretId: me.secretId, upIds: [...me.upIds], color: me.color },
     rival: {
       upCount: other.upIds.length,

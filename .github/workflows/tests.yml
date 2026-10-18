@@ -1,4 +1,4 @@
-# Tipos, build y tests unitarios en cada pull request y en cada push a main.
+# Tipos, build, tests unitarios y equilibrio de las barajas en cada pull request y en cada push a main.
 # Los E2E de Playwright se añadirán aquí cuando lleguen los de la partida.
 
 name: Tests
@@ -29,3 +29,4 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm build
       - run: pnpm test
+      - run: pnpm validar-baraja

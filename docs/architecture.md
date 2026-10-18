@@ -153,8 +153,7 @@ Si en el prototipo la sensación de plástico se queda corta, se revisa.
 
 ### 2026-10-16 — Baraja como datos, no como código
 **Contexto:** habrá barajas de otros temas.
-**Decisión:** cada baraja es una carpeta con `deck.json` (personajes, atributos, preguntas en sus
-dos tonos, colores de tablero y créditos) y sus fotos. El motor no sabe nada de política.
+**Decisión:** cada baraja es una carpeta con `deck.json` (personajes, atributos, preguntas, colores de tablero y créditos) y sus fotos. El motor no sabe nada de política.
 **Consecuencias:** añadir una baraja no toca el código; el script de validación se aplica a todas.
 
 ### 2026-10-16 — Recorte de fotos con coordenadas guardadas

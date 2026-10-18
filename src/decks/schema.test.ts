@@ -25,7 +25,7 @@ describe('esquema de baraja', () => {
   it('(negativo) rechaza preguntas que apuntan a un atributo inexistente', () => {
     const deck = {
       ...testDeck,
-      questions: [...testDeck.questions, { id: 'q-gafas', attributeId: 'gafas', text: { neutral: 'a', humor: 'b' } }],
+      questions: [...testDeck.questions, { id: 'q-gafas', attributeId: 'gafas', text: '¿Lleva gafas?' }],
     };
     expect(messages(deck)).toContain('La pregunta q-gafas apunta a un atributo inexistente: gafas');
   });
