@@ -45,6 +45,7 @@ No hay base de datos. Hay dos tipos de datos:
 | id | string | `mujer`, `izquierda`, `gafas`… |
 | kind | `"identidad"` \| `"trayectoria"` \| `"ideologia"` | Identidad: sexo y bloque. Trayectoria: dato biográfico comprobable. Ideología: postura del programa de su partido |
 | source | string | De dónde sale el dato (ficha del Congreso, Wikipedia, programa electoral…) |
+| core | boolean? | Reparto principal de la baraja (sexo, bloque): el validador lo exige entre 10 y 14 |
 
 No hay atributos físicos (gafas, barba, pelo…): el sexo es el único rasgo personal que se
 pregunta.
@@ -58,11 +59,9 @@ convierte en una o varias preguntas sí/no ("¿Es del PP?", "¿Nació antes de 1
 |-------|------|-------------|
 | id | string | `q-mujer`, `q-gafas`… |
 | attributeId | string (→ Attribute) | Atributo que responde la pregunta |
-| text.neutral | string | "¿Es mujer?" |
-| text.humor | string | Misma pregunta en tono humor (M-12) |
+| text | string | "¿Es mujer?". Tono neutral y una sola pregunta, sin alternativas con "o" |
 
-La respuesta a una pregunta es siempre `character.attributes[attributeId]`. El tono solo cambia
-`text`, nunca el atributo.
+La respuesta a una pregunta es siempre `character.attributes[attributeId]`.
 
 ### Character
 
@@ -73,7 +72,8 @@ La respuesta a una pregunta es siempre `character.attributes[attributeId]`. El t
 | fullName | string | "Pedro Sánchez Pérez-Castejón" |
 | role | string | Cargo a fecha `dataAsOf`, o el último relevante si ya no está en activo |
 | attributes | Record<attributeId, boolean> | Un valor por cada atributo de la baraja, sin huecos |
-| photo | Photo | Foto y crédito |
+| sources | string[] (URL, mínimo 2) | Fuentes con las que se ha contrastado cada dato del personaje |
+| photo | Photo? | Foto y crédito. Opcional hasta la feature de las fotos (M-11), que lo hará obligatorio |
 
 ### Photo
 
@@ -93,7 +93,6 @@ La respuesta a una pregunta es siempre `character.attributes[attributeId]`. El t
 |-------|------|-------------|
 | seed | number | Semilla del azar; con la misma semilla, el mismo reparto (tests) |
 | deckId | string | Baraja de la partida |
-| tone | `"neutral"` \| `"humor"` | Elegido al empezar (M-12) |
 | difficulty | `"facil"` \| `"dificil"` | Nivel de la máquina (S-01) |
 | phase | `"jugando"` \| `"terminada"` | |
 | turn | PlayerId | A quién le toca |
@@ -140,35 +139,39 @@ erDiagram
 
 ## Reglas de validación (`pnpm validar-baraja`, M-10)
 
-- 24 personajes, ids únicos, todos con valor para todos los atributos.
+- 24 personajes, ids únicos, todos con valor para todos los atributos y al menos dos fuentes.
 - Cada pregunta: entre 8 y 16 personajes responden "sí".
-- `mujer` e `izquierda`: entre 10 y 14 personajes responden "sí".
+- Atributos `core` (en `politicos-es`, `mujer` e `izquierda`): entre 10 y 14 personajes responden
+  "sí".
 - No hay dos personajes con exactamente los mismos atributos (si no, sería imposible
   distinguirlos).
-- Toda foto tiene `author`, `license`, `licenseUrl` y `sourceUrl`, y la licencia está en la lista
-  de admitidas.
-- Toda pregunta tiene texto en los dos tonos.
+- Toda foto tiene `author`, `license`, `licenseUrl` y `sourceUrl` (la lista de licencias admitidas
+  llega con la feature de las fotos).
+- Avisos que no fallan: personajes sin foto y atributos sin pregunta.
 
 ---
 
-## Datos seed: baraja `politicos-es` (propuesta, pendiente de revisar)
+## Datos seed: baraja `politicos-es`
 
-### Personajes propuestos (24)
+Vive en `src/decks/politicos-es/deck.json`. Datos a fecha **2026-10-16**, cada uno contrastado con al
+menos dos fuentes (las URL de cada personaje están en su campo `sources`).
 
-Equilibrio: 12 mujeres y 12 hombres; 12 de izquierda y 12 de derecha, con 6 y 6 de cada sexo en
-cada bloque. Mezcla de cargos en activo y figuras ya retiradas, para que "¿Sigue en activo?" sea
-una buena pregunta.
+### Personajes (24)
 
-La clasificación izquierda/derecha sigue la posición habitual del partido en el eje
-izquierda-derecha. Junts y Cs se cuentan en la derecha (centroderecha).
+12 mujeres y 12 hombres; 12 de izquierda y 12 de derecha, con 6 y 6 de cada sexo en cada bloque.
+Junts y Cs se cuentan en la derecha (centroderecha). Para las preguntas sobre "su partido", el de
+Rocío Monasterio es Vox, el último con el que tuvo cargo.
 
 | Bloque | Mujeres | Hombres |
 |--------|---------|---------|
-| Izquierda | Yolanda Díaz (Sumar), María Jesús Montero (PSOE), Ione Belarra (Podemos), Irene Montero (Podemos), Mónica García (Más Madrid), Ana Pontón (BNG) | Pedro Sánchez (PSOE), Salvador Illa (PSC), Óscar Puente (PSOE), Gabriel Rufián (ERC), Pablo Iglesias (Podemos), Alberto Garzón (IU) |
+| Izquierda | Yolanda Díaz (Sumar), María Jesús Montero (PSOE), Ada Colau (Comuns), Irene Montero (Podemos), Mónica García (Más Madrid), Ana Pontón (BNG) | Pedro Sánchez (PSOE), Salvador Illa (PSC), Óscar Puente (PSOE), Gabriel Rufián (ERC), Pablo Iglesias (Podemos), Alberto Garzón (IU) |
 | Derecha | Isabel Díaz Ayuso (PP), Cuca Gamarra (PP), Esperanza Aguirre (PP), Inés Arrimadas (Cs), Rocío Monasterio (ex-Vox), Míriam Nogueras (Junts) | Alberto Núñez Feijóo (PP), Juanma Moreno (PP), Mariano Rajoy (PP), Santiago Abascal (Vox), Albert Rivera (Cs), Carles Puigdemont (Junts) |
 
-Suplentes si falta foto con licencia válida: Ada Colau, Pilar Alegría, Félix Bolaños, Arnaldo
-Otegi, Ignacio Garriga, Pepa Millán, Aitor Esteban.
+Ione Belarra, de la propuesta inicial, se sustituyó por Ada Colau: con estas preguntas tenía
+exactamente las mismas respuestas que Irene Montero y no se podían distinguir.
+
+Suplentes para futuras versiones: Pilar Alegría, Félix Bolaños, Ignacio Garriga, Pepa Millán,
+Aitor Esteban, Ione Belarra.
 
 ### Reglas para las preguntas
 
@@ -176,35 +179,40 @@ Otegi, Ignacio Garriga, Pepa Millán, Aitor Esteban.
 2. **Respuesta inequívoca.** Si una persona razonable podría contestar distinto, la pregunta no
    entra: una respuesta discutible hace que el jugador baje fichas que no debía y la partida se
    rompe.
-3. **Con fuente.** Cada valor de cada personaje se puede comprobar.
-4. **La ideología, a nivel de partido.** Se pregunta por lo que defiende el programa de su
-   partido, no por lo que opina la persona.
-5. **Que no repita "izquierda".** Una pregunta ideológica que contestan "sí" todos los de un bloque
-   no aporta nada después de preguntar "¿Es de izquierdas?". Solo valen las que cruzan bloques o
-   parten un bloque por dentro.
+3. **Con fuente.** Cada valor de cada personaje se puede comprobar en al menos dos fuentes.
+4. **La ideología, a nivel de partido.** Se pregunta por lo que hace o defiende su partido, no por
+   lo que opina la persona.
+5. **Que no repita "izquierda".** Solo valen las que cruzan bloques o parten un bloque por dentro.
+6. **Una sola pregunta.** Nada de alternativas unidas con "o" ("¿presidente autonómico o
+   alcalde?"): son dos preguntas. Si las dos mitades no pasan el equilibrio por separado, se
+   busca otra pregunta.
+7. **Nada que dependa del momento exacto** ("¿tiene escaño hoy?"): las Cortes están disueltas por
+   las elecciones del 29 de noviembre de 2026 y la respuesta cambia en semanas.
 
-### Atributos y preguntas candidatas
+### Preguntas (12)
 
-Los recuentos son estimaciones con la lista de arriba; se comprueban con fuente al construir la
-baraja y el validador decide cuáles entran.
+| Atributo | Pregunta | "Sí" |
+|----------|----------|:----:|
+| mujer | ¿Es mujer? | 12 |
+| izquierda | ¿Es de izquierdas? | 12 |
+| consejo-ministros | ¿Ha formado parte del Consejo de Ministros? (incluye presidentes) | 11 |
+| parlamento-autonomico | ¿Ha ocupado escaño en un parlamento autonómico? | 15 |
+| candidato-presidente | ¿Ha sido el candidato de su partido a presidir el Gobierno en unas generales? | 8 |
+| nacido-antes-1975 | ¿Nació antes de 1975? | 14 |
+| nacido-anos-70 | ¿Nació en los años setenta? | 12 |
+| partido-nuevo | ¿Su partido se fundó después de 2010? | 9 |
+| apoyo-investidura-sanchez | ¿Su partido ha votado sí en alguna investidura de Pedro Sánchez? | 16 |
+| estudio-derecho | ¿Estudió Derecho? | 9 |
+| concejal | ¿Ha sido concejal? (una alcaldía cuenta) | 13 |
+| nacio-lengua-cooficial | ¿Nació en una comunidad autónoma con lengua cooficial? | 12 |
 
-| Atributo | Tipo | Pregunta (neutral) | "Sí" aprox. |
-|----------|------|--------------------|:-----------:|
-| mujer | identidad | ¿Es mujer? | 12 |
-| izquierda | identidad | ¿Es de izquierdas? | 12 |
-| consejo-ministros | trayectoria | ¿Ha formado parte del Consejo de Ministros? | 11 |
-| gobierno-territorial | trayectoria | ¿Ha presidido una comunidad autónoma o un ayuntamiento? | 8 |
-| candidato-presidente | trayectoria | ¿Ha sido candidato a la presidencia del Gobierno? | 8 |
-| lider-partido | trayectoria | ¿Ha sido el máximo líder de su partido? | ~12 |
-| en-activo | trayectoria | ¿Tiene hoy un cargo público o en su partido? | ~16 |
-| nacido-antes-1975 | trayectoria | ¿Nació antes de 1975? | ~12 |
-| eurodiputado | trayectoria | ¿Ha sido eurodiputado? | a contar |
-| partido-nuevo | trayectoria | ¿Su partido se fundó después de 2010? | ~9 |
-| republica | ideologia | ¿Su partido defiende que España (o su territorio) sea una república? | ~10 |
-| apoyo-investidura-sanchez | ideologia | ¿Su partido ha apoyado una investidura de Pedro Sánchez? | ~12 |
+Pablo Iglesias cuenta como "no" en `parlamento-autonomico`: ganó el acta en la Asamblea de Madrid
+en 2021 y renunció esa misma noche sin ocuparla. Por eso la pregunta dice "ocupado escaño".
 
-`republica` y `apoyo-investidura-sanchez` son ejemplos de lo que buscamos: cruzan los bloques (Junts es de
-derecha y republicano; el PSOE es de izquierda y no lo es) y tienen respuesta comprobable.
-
-Descartadas: inmigración, impuestos, aborto y similares, porque repiten casi exactamente el eje
-izquierda-derecha y porque resumirlas en un sí/no por persona es discutible.
+Descartadas en esta versión, por no cumplir las reglas: "¿Ha presidido una comunidad autónoma o
+ha sido alcalde?" y "¿Es del PSOE (o del PSC) o del PP?" (son dos preguntas; por separado salen
+6, 5, 4 y 6), "¿Ha sido el máximo líder de su
+partido?" (ambigua con PSC, Sumar o Más Madrid), "¿Tiene hoy un cargo?" (17 "sí" y cambia con las
+elecciones), "¿Ha sido eurodiputado?" (solo 3), "¿Su partido defiende la república?" (no hay una
+fuente clara para Sumar ni Más Madrid), "¿Ha sido diputado en el Congreso?" (16-17, en el límite
+y sin una fuente oficial que confirme los "no").

@@ -64,7 +64,7 @@ Reglas que se derivan de eso:
   que mejor parte sus fichas.
 - Baraja: esquema válido, equilibrio de cada pregunta (8–16 de 24) y de los repartos principales,
   y que toda foto tiene autor, licencia y fuente.
-- E2E: partida completa ganada y perdida, bajar y levantar a mano, cambio de tono, contador del
+- E2E: partida completa ganada y perdida, bajar y levantar a mano, contador del
   rival, página de créditos.
 - Partidas deterministas: el motor acepta una semilla para el azar, así los tests saben qué
   secreto tiene cada uno.
@@ -97,8 +97,8 @@ la interfaz: la cubren los E2E por requisito.
 
 ## En CI
 
-`.github/workflows/tests.yml` ejecuta `pnpm build` (que incluye la comprobación de tipos) y
-`pnpm test` en cada pull request y en cada push a `main`. `.github/workflows/cobertura.yml`
+`.github/workflows/tests.yml` ejecuta `pnpm build` (que incluye la comprobación de tipos),
+`pnpm test` y `pnpm validar-baraja` en cada pull request y en cada push a `main`. `.github/workflows/cobertura.yml`
 verifica las tablas de cobertura de `docs/features/`. Los E2E se añadirán a CI con los de la
 partida.
 
@@ -117,6 +117,6 @@ pnpm test:coverage
 # E2E (levanta el build en localhost)
 pnpm test:e2e
 
-# Validar el equilibrio de las barajas (llega con la feature de la baraja)
+# Validar el equilibrio de las barajas
 pnpm validar-baraja
 ```

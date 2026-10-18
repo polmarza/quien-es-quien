@@ -78,9 +78,6 @@ con alguien. No quiere registrarse ni instalar nada.
   script falla y nombra la pregunta.
 - **[M-11] Créditos de las fotos** — Dada cualquier foto del juego, cuando se abre la página de
   créditos, entonces aparece su autor, licencia y enlace a la fuente original.
-- **[M-12] Elegir tono al empezar** — Dada la pantalla de inicio, cuando el jugador elige
-  "Neutral" o "Con humor", entonces la partida usa los textos de preguntas de ese tono. Las
-  preguntas son las mismas y responden a los mismos datos; solo cambia cómo están escritas.
 
 ### SHOULD
 - **[S-01] Máquina con niveles de dificultad** — Dado el nivel "Fácil", cuando la máquina
@@ -116,6 +113,8 @@ con alguien. No quiere registrarse ni instalar nada.
 - Caras generadas con IA de personas reales.
 - Cuentas de usuario, rankings o estadísticas guardadas.
 - Monetización o publicidad.
+- Elegir tono "Neutral" o "Con humor" (antes M-12; ID vacante): decisión del usuario del
+  2026-10-18, las preguntas se escriben solo en tono neutral.
 - Dibujar el tablero del rival, ni siquiera en miniatura (antes S-02; ID vacante): basta la ficha
   única con el número de fichas que le quedan.
 
@@ -124,7 +123,7 @@ con alguien. No quiere registrarse ni instalar nada.
 ## Flujos de usuario principales
 
 **Partida contra la máquina:**
-El jugador abre la web, elige tono (y dificultad, si existe) y pulsa "Jugar". Ve su tablero de 24
+El jugador abre la web, elige dificultad (si existe) y pulsa "Jugar". Ve su tablero de 24
 fichas, su personaje secreto y el contador del rival. En su turno elige una pregunta, ve la
 respuesta y confirma qué fichas caen. Luego la máquina pregunta, el juego responde por él y el
 contador del rival baja. Se repite hasta que uno de los dos adivina. Al final ve quién ha ganado y
@@ -143,8 +142,8 @@ puede jugar otra.
   la imagen; se respeta `prefers-reduced-motion`.
 - **Neutralidad:** la baraja está equilibrada entre bloques y partidos; las preguntas se basan en
   datos comprobables con fuente (trayectoria y programa del partido), nunca en opiniones ni en el
-  aspecto físico; el sexo es el único rasgo personal que se pregunta. El modo "Con humor" cambia
-  la redacción, no los datos, y no ridiculiza a ningún personaje.
+  aspecto físico; el sexo es el único rasgo personal que se pregunta. Cada pregunta es una sola
+  pregunta, sin alternativas unidas con "o".
 - **Licencias:** solo fotos con licencia que permita reutilizarlas (CC BY, CC BY-SA, dominio
   público o condiciones oficiales que lo permitan), siempre con crédito.
 - **Datos fechados:** la baraja lleva la fecha a la que corresponden los cargos.

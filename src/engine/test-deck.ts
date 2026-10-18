@@ -40,9 +40,9 @@ export const testDeck: Deck = deckSchema.parse({
     { id: 'republica', kind: 'ideologia', source: 'prueba' },
   ],
   questions: [
-    { id: 'q-mujer', attributeId: 'mujer', text: { neutral: '¿Es mujer?', humor: '¿Es mujer, mujer?' } },
-    { id: 'q-ministro', attributeId: 'ministro', text: { neutral: '¿Ha sido ministro?', humor: '¿Ha tenido coche oficial?' } },
-    { id: 'q-republica', attributeId: 'republica', text: { neutral: '¿Su partido defiende la república?', humor: '¿Le sobra el rey?' } },
+    { id: 'q-mujer', attributeId: 'mujer', text: '¿Es mujer?' },
+    { id: 'q-ministro', attributeId: 'ministro', text: '¿Ha sido ministro?' },
+    { id: 'q-republica', attributeId: 'republica', text: '¿Su partido defiende la república?' },
   ],
   characters: people.map(([id, mujer, ministro, republica]) => ({
     id,
@@ -50,6 +50,7 @@ export const testDeck: Deck = deckSchema.parse({
     fullName: id,
     role: 'Personaje de prueba',
     attributes: { mujer, ministro, republica },
+    sources: [`https://example.org/${id}`, `https://example.org/${id}/2`],
     photo: photo(id),
   })),
 });

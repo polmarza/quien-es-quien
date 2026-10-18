@@ -17,15 +17,14 @@ export const attributeSchema = z.object({
   id: slug,
   kind: z.enum(['identidad', 'trayectoria', 'ideologia']),
   source: z.string().min(1),
+  /** Reparto principal de la baraja (sexo, bloque): el validador lo exige más ajustado. */
+  core: z.boolean().optional(),
 });
 
 export const questionSchema = z.object({
   id: slug,
   attributeId: slug,
-  text: z.object({
-    neutral: z.string().min(1),
-    humor: z.string().min(1),
-  }),
+  text: z.string().min(1),
 });
 
 export const photoSchema = z.object({
@@ -48,7 +47,10 @@ export const characterSchema = z.object({
   fullName: z.string().min(1),
   role: z.string().min(1),
   attributes: z.record(z.string(), z.boolean()),
-  photo: photoSchema,
+  /** Dónde se ha contrastado cada dato del personaje: al menos dos fuentes. */
+  sources: z.array(z.url()).min(2, 'Cada personaje necesita al menos dos fuentes'),
+  /** Opcional hasta la feature de las fotos (M-11). */
+  photo: photoSchema.optional(),
 });
 
 export const deckSchema = z
