@@ -1,0 +1,124 @@
+.game {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-4);
+}
+
+.top {
+  display: flex;
+  gap: var(--space-4);
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-2);
+}
+
+.status {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: var(--space-6);
+  align-items: start;
+}
+
+@media (max-width: 860px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.boardArea {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-2);
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.boardArea > :first-child {
+  width: 100%;
+}
+
+/* Ranura delantera del tablero donde va la carta secreta. */
+.slot {
+  margin-top: calc(var(--space-6) * -1);
+  padding: var(--space-2);
+  border-radius: var(--radius-board);
+  background: var(--board-player);
+  box-shadow: inset 0 -4px 0 var(--board-player-shade);
+}
+
+.side {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.endBackdrop {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: var(--space-4);
+  background: rgb(0 0 0 / 0.6);
+}
+
+.end {
+  display: grid;
+  gap: var(--space-3);
+  justify-items: center;
+  max-width: 440px;
+  padding: var(--space-6);
+  border-radius: var(--radius-board);
+  background: var(--table);
+  box-shadow: 0 20px 50px rgb(0 0 0 / 0.6);
+  text-align: center;
+}
+
+.end p {
+  margin: 0;
+}
+
+.endTitle {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.endCards {
+  display: flex;
+  gap: var(--space-4);
+}
+
+.endCard {
+  display: grid;
+  gap: var(--space-1);
+  margin: 0;
+  padding: var(--space-2);
+  border-radius: var(--radius-tile);
+  background: var(--secret-frame);
+  color: var(--text-primary);
+}
+
+.endCard img {
+  display: block;
+  width: 120px;
+  height: 160px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.endCard figcaption {
+  display: grid;
+  font-size: 12px;
+}
+
+.endCard strong {
+  font-family: var(--font-display);
+  font-size: 15px;
+}

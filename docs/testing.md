@@ -51,7 +51,7 @@ Reglas que se derivan de eso:
 |------|-------------|
 | Unitario | Vitest (motor, máquina, validación de baraja) |
 | Integración | Vitest + Testing Library (componentes con estado: lista de preguntas, contador) |
-| E2E | Playwright contra `localhost` (`pnpm preview`): Chromium escritorio y Chromium con emulación de móvil; WebKit móvil se añade con los E2E de la partida |
+| E2E | Playwright contra `localhost` (`pnpm preview`): Chromium escritorio y Chromium con emulación de móvil. WebKit queda pendiente hasta que se pida |
 
 ---
 
@@ -81,7 +81,9 @@ Reglas que se derivan de eso:
 ## Convenciones
 
 - Unitarios junto al código: `src/engine/turnos.test.ts`.
-- E2E en `tests/e2e/`, un archivo por flujo: `partida-contra-maquina.spec.ts`.
+- E2E en `tests/e2e/`, un archivo por flujo: `partida.spec.ts`, `creditos.spec.ts`.
+- Los E2E de partida usan `?semilla=` y calculan lo esperado con el mismo motor
+  (`src/engine/`), así no dependen de qué personajes salen.
 - El nombre del test empieza por el ID del requisito: `"M-04 baja las fichas que no encajan"`.
 - Descripciones en presente y en español.
 - Selectores E2E por rol accesible o `data-testid`, nunca por clases CSS.
@@ -98,9 +100,9 @@ la interfaz: la cubren los E2E por requisito.
 ## En CI
 
 `.github/workflows/tests.yml` ejecuta `pnpm build` (que incluye la comprobación de tipos),
-`pnpm test` y `pnpm validar-baraja` en cada pull request y en cada push a `main`. `.github/workflows/cobertura.yml`
-verifica las tablas de cobertura de `docs/features/`. Los E2E se añadirán a CI con los de la
-partida.
+`pnpm test` y `pnpm validar-baraja` en cada pull request y en cada push a `main`, y en otro job
+los E2E con Playwright (Chromium) contra el build servido en localhost. `.github/workflows/cobertura.yml`
+verifica las tablas de cobertura de `docs/features/`.
 
 ## Cómo correr los tests
 

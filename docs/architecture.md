@@ -59,8 +59,7 @@ número de fichas levantadas del rival.
 
 ## Estructura de carpetas
 
-Existe ya `src/engine/`, `src/decks/schema.ts`, `src/ui/App.tsx` (página provisional),
-`src/styles/` y `tests/e2e/`. El resto es la estructura prevista.
+Existe ya todo lo del nivel 1; `worker/` es del nivel 2 y todavía no existe.
 
 ```
 src/
@@ -73,7 +72,8 @@ src/
 │   ├── schema.ts     → Esquema Zod de una baraja
 │   └── politicos-es/ → Baraja: deck.json (personajes, atributos, preguntas, colores) y fotos procesadas
 ├── ui/
-│   ├── board/        → Tablero 3D, fichas, cámara y rotación
+│   ├── game/         → useGame: conecta la interfaz con el motor (solo lee playerView)
+│   ├── board/        → Tablero 3D y fichas
 │   ├── hud/          → Contador del rival, carta secreta, lista de preguntas, respuestas
 │   └── screens/      → Inicio, partida, fin de partida, créditos
 ├── styles/           → Tokens del design system como variables CSS y estilos globales

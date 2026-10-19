@@ -33,8 +33,8 @@ fichas que ya no encajan. Gana quien adivine antes el personaje del otro.
 ## Estado
 
 En desarrollo. La documentación del producto está cerrada y la fase 1 (partida completa contra la
-máquina) está en marcha: el proyecto, el motor del juego, la baraja de políticos y sus fotos ya existen; faltan
-el tablero y la partida jugable. Después vendrán jugar contra otra persona, salas y barajas de otros
+máquina) está en marcha: ya se puede jugar una partida completa contra la máquina en local. Queda la revisión visual
+del prototipo y publicarlo. Después vendrán jugar contra otra persona, salas y barajas de otros
 temas: ver [`docs/roadmap.md`](docs/roadmap.md).
 
 ---
