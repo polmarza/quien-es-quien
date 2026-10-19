@@ -75,8 +75,10 @@ Fuentes autoalojadas (no Google Fonts en tiempo de ejecución).
 ## Espaciado y grid
 
 - Escala: 4px base (4, 8, 12, 16, 24, 32, 48, 64).
-- Tablero: cuadrícula de **6 columnas × 4 filas**. En móvil vertical, 4 × 6 si las fichas
-  quedan por debajo de 48px de ancho.
+- Tablero: cuadrícula de **6 columnas × 4 filas**, también en móvil (con 4px de separación las
+  fichas quedan a unos 47px de ancho en un móvil de 375px). Solo pasa a 4 × 6 si el tablero mide
+  menos de 300px de ancho: en 4 × 6 ocupa toda la pantalla y las preguntas quedan muy abajo
+  (probado en el prototipo).
 - Ficha: proporción 3:4 para la foto más 18% de alto para la placa del nombre.
 - Separación entre fichas: 8px (móvil 4px).
 - Ancho máximo del área de juego: 960px.
@@ -98,10 +100,12 @@ Fuentes autoalojadas (no Google Fonts en tiempo de ejecución).
   el tablero gira sobre su eje vertical como máximo ±25° y la inclinación varía entre 35° y 55°.
   Nunca se llega a ver la parte de atrás de las fichas. Al soltar vuelve suavemente a la posición
   inicial en 400ms. En móvil la cámara está fija.
-- **Caída de ficha:** bisagra en el borde inferior (`transform-origin: bottom`). Cae a
-  `rotateX(-82deg)` en 380ms con `cubic-bezier(.5,0,.75,0)` y un rebote final de 4° en 120ms.
-  Levantar es la animación inversa, 300ms. Con `prefers-reduced-motion`, la ficha pasa a dorso
-  con un fundido de 150ms.
+- **Caída de ficha:** bisagra en el borde inferior (`transform-origin: bottom`). De pie está a
+  `rotateX(-80deg)` respecto al tablero (10° hacia atrás); al bajarse cae hacia atrás hasta quedar
+  casi tumbada (`rotateX(-4deg)`) en 380ms con `cubic-bezier(.5,0,.75,0)`, y se oscurece
+  (`brightness(.45) saturate(.4)`). Levantar es la animación inversa, 300ms. Con
+  `prefers-reduced-motion`, la ficha no se mueve: se oscurece del todo con un fundido de 150ms.
+  (El rebote de 4° queda pendiente para la revisión visual.)
 - **Varias fichas a la vez:** caen en cascada con 40ms de retraso entre una y la siguiente, en
   orden de lectura.
 - **Ficha marcada:** antes de confirmar, las fichas que van a caer llevan contorno mostaza de 3px
@@ -149,8 +153,23 @@ casino con brillos.
 
 ## Componentes definidos
 
-<!-- Se documentan a medida que se construyen. Previstos: Board, Tile, SecretCard, RivalCounter (ficha única),
-     QuestionList, AnswerBanner, GuessDialog, EndScreen, CreditsPage. -->
+### Board (`src/ui/board/Board.tsx`)
+Escena 3D con el tablero inclinado y las 24 fichas. Props: `deck`, `upIds`, `mode` (libre, marcando,
+adivinando), `dropOrder` (cascada), `disabled`, `onTile`. Recupera con margen negativo el hueco
+que deja la inclinación arriba.
+
+### Tile (`src/ui/board/Tile.tsx`)
+Ficha con bisagra. Es un `<button>` con `aria-pressed` (bajada) y `data-state`: `arriba`,
+`marcada` (contorno amarillo, foto al 70 %), `bajada` o `candidata` (al adivinar).
+
+### SecretCard, RivalCounter, QuestionList, Answer, GuessDialog (`src/ui/hud/`)
+Carta secreta con marco amarillo en la ranura delantera; ficha única azul del rival con el número
+(volteo al cambiar); lista de preguntas (las hechas, tachadas); respuesta "✓ Sí" / "✗ No" con
+color, icono y texto; panel de adivinar con confirmación.
+
+### Partida, FinPartida, Creditos (`src/ui/screens/`)
+Pantalla de juego (tablero y panel lateral, que en móvil pasa debajo), diálogo final con los dos
+secretos y página de créditos.
 
 ---
 

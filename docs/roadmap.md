@@ -18,9 +18,9 @@ construcción previsto:
 - [x] **Baraja `politicos-es`:** datos con fuente de los 24 personajes, 12 preguntas y
       validador de equilibrio — M-10.
 - [x] **Fotos:** búsqueda de fotos con licencia, script de procesado y créditos — M-11.
-- [ ] **Tablero 3D:** vista a 45°, fichas con bisagra, caída en cascada, bajar y levantar a mano —
+- [x] **Tablero 3D:** vista a 45°, fichas con bisagra, caída en cascada, bajar y levantar a mano —
       M-01, M-04, M-05.
-- [ ] **Partida jugable:** pantalla de inicio, carta secreta, lista de preguntas,
+- [x] **Partida jugable:** pantalla de inicio, carta secreta, lista de preguntas,
       contador del rival, adivinar y pantalla final — M-07.
 - [ ] **Revisión del prototipo:** ajustar ángulo, cámara y aspecto del plástico a ojo.
 - [ ] **Publicación:** repo en GitHub conectado a Cloudflare (lo hace el usuario).

@@ -1,5 +1,5 @@
 # Tipos, build, tests unitarios y equilibrio de las barajas en cada pull request y en cada push a main.
-# Los E2E de Playwright se añadirán aquí cuando lleguen los de la partida.
+# Y las partidas completas con Playwright contra localhost.
 
 name: Tests
 
@@ -30,3 +30,21 @@ jobs:
       - run: pnpm build
       - run: pnpm test
       - run: pnpm validar-baraja
+
+  e2e:
+    name: Partidas completas (Playwright)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm exec playwright install --with-deps chromium
+      # Levanta el build con `vite preview` en localhost (playwright.config.ts).
+      - run: pnpm test:e2e
