@@ -170,7 +170,20 @@
       "sources": [
         "https://www.lamoncloa.gob.es/gobierno/Paginas/biografias-xv-legislatura/ministra-yolanda-diaz.aspx",
         "https://es.wikipedia.org/wiki/Yolanda_D%C3%ADaz"
-      ]
+      ],
+      "photo": {
+        "file": "yolanda-diaz.webp",
+        "original": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Yolanda_D%C3%ADaz_2023_%28cropped%29.jpg",
+        "author": "La Moncloa - Gobierno de España",
+        "license": "Attribution",
+        "licenseUrl": "https://commons.wikimedia.org/wiki/Template:Attribution",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yolanda_D%C3%ADaz_2023_(cropped).jpg",
+        "crop": {
+          "eyeX": 0.5311,
+          "eyeY": 0.4193,
+          "scale": 0.8354
+        }
+      }
     },
     {
       "id": "maria-jesus-montero",
@@ -194,7 +207,20 @@
       "sources": [
         "https://www.lamoncloa.gob.es/gobierno/Paginas/biografias-xv-legislatura/ministra-maria-jesus-montero.aspx",
         "https://es.wikipedia.org/wiki/Mar%C3%ADa_Jes%C3%BAs_Montero"
-      ]
+      ],
+      "photo": {
+        "file": "maria-jesus-montero.webp",
+        "original": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Ministra_Mar%C3%ADa_Jes%C3%BAs_Montero_2023_%28cropped%29.jpg",
+        "author": "La Moncloa - Gobierno de España",
+        "license": "Attribution",
+        "licenseUrl": "https://commons.wikimedia.org/wiki/Template:Attribution",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ministra_Mar%C3%ADa_Jes%C3%BAs_Montero_2023_(cropped).jpg",
+        "crop": {
+          "eyeX": 0.5153,
+          "eyeY": 0.3886,
+          "scale": 0.9714
+        }
+      }
     },
     {
       "id": "ada-colau",
@@ -218,7 +244,20 @@
       "sources": [
         "https://apidocs.barcelona.cat/retribucions_pro/ALC_AJB_Ada%20Colau%20Ballano_CVCS.pdf",
         "https://es.wikipedia.org/wiki/Ada_Colau"
-      ]
+      ],
+      "photo": {
+        "file": "ada-colau.webp",
+        "original": "https://upload.wikimedia.org/wikipedia/commons/2/25/Ada-Colau-Encuentro-2024.jpg",
+        "author": "Robo71",
+        "license": "CC0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ada-Colau-Encuentro-2024.jpg",
+        "crop": {
+          "eyeX": 0.39,
+          "eyeY": 0.324,
+          "scale": 0.8101
+        }
+      }
     },
     {
       "id": "irene-montero",
@@ -242,7 +281,20 @@
       "sources": [
         "https://www.lamoncloa.gob.es/gobierno/gobiernosporlegislaturas/Paginas/xiv_legislatura.aspx",
         "https://es.wikipedia.org/wiki/Irene_Montero"
-      ]
+      ],
+      "photo": {
+        "file": "irene-montero.webp",
+        "original": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Irene_Montero_Gil%2C_2024_%28cropped%29.jpg",
+        "author": "The Left in the European Parliament",
+        "license": "CC0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Irene_Montero_Gil,_2024_(cropped).jpg",
+        "crop": {
+          "eyeX": 0.4666,
+          "eyeY": 0.3876,
+          "scale": 0.9345
+        }
+      }
     },
     {
       "id": "monica-garcia",
@@ -266,7 +318,20 @@
       "sources": [
         "https://www.lamoncloa.gob.es/gobierno/Paginas/biografias-xv-legislatura/ministra-monica-garcia.aspx",
         "https://es.wikipedia.org/wiki/M%C3%B3nica_Garc%C3%ADa_G%C3%B3mez"
-      ]
+      ],
+      "photo": {
+        "file": "monica-garcia.webp",
+        "original": "https://upload.wikimedia.org/wikipedia/commons/b/b3/M%C3%B3nica_Garc%C3%ADa_2023_%28cropped%29.jpg",
+        "author": "La Moncloa - Gobierno de España",
+        "license": "Attribution",
+        "licenseUrl": "https://commons.wikimedia.org/wiki/Template:Attribution",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:M%C3%B3nica_Garc%C3%ADa_2023_(cropped).jpg",
+        "crop": {
+          "eyeX": 0.5369,
+          "eyeY": 0.3815,
+          "scale": 0.8247
+        }
+      }
     },
     {
       "id": "ana-ponton",
@@ -290,7 +355,20 @@
       "sources": [
         "https://es.wikipedia.org/wiki/Ana_Pont%C3%B3n",
         "https://www.eldiario.es/galicia/ana-ponton-llega-18f-antagonista-indiscutible-rueda-primera-vez-opciones-presidir-xunta_1_10932257.html"
-      ]
+      ],
+      "photo": {
+        "file": "ana-ponton.webp",
+        "original": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Ana_Pont%C3%B3n_2012_%28cropped%29.jpg",
+        "author": "Elisardojm (recorte de Impru20)",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ana_Pont%C3%B3n_2012_(cropped).jpg",
+        "crop": {
+          "eyeX": 0.5806,
+          "eyeY": 0.4335,
+          "scale": 0.7471
+        }
+      }
     },
     {
       "id": "pedro-sanchez",
@@ -314,7 +392,20 @@
       "sources": [
         "https://www.lamoncloa.gob.es/presidente/biografia/Paginas/index.aspx",
         "https://es.wikipedia.org/wiki/Pedro_S%C3%A1nchez"
-      ]
+      ],
+      "photo": {
+        "file": "pedro-sanchez.webp",
+        "original": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Obisk_%C5%A1panskega_predsednika_vlade_v_Sloveniji_%2853658605930%29_%28cropped%29.jpg",
+        "author": "Foto: Nebojša Tejić/STA",
+        "license": "Public domain",
+        "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Public_domain",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Obisk_%C5%A1panskega_predsednika_vlade_v_Sloveniji_(53658605930)_(cropped).jpg",
+        "crop": {
+          "eyeX": 0.4532,
+          "eyeY": 0.3523,
+          "scale": 0.8808
+        }
+      }
     },
     {
       "id": "salvador-illa",
@@ -339,7 +430,20 @@
         "https://catalangovernment.eu/catalangovernment/president",
         "https://www.lamoncloa.gob.es/gobierno/gobiernosporlegislaturas/Paginas/xiv_legislatura.aspx",
         "https://es.wikipedia.org/wiki/Salvador_Illa"
-      ]
+      ],
+      "photo": {
+        "file": "salvador-illa.webp",
+        "original": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Salvador_Illa_2020_%28portrait%29.jpg",
+        "author": "La Moncloa - Gobierno de España",
+        "license": "Attribution",
+        "licenseUrl": "https://commons.wikimedia.org/wiki/Template:Attribution",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Salvador_Illa_2020_(portrait).jpg",
+        "crop": {
+          "eyeX": 0.5331,
+          "eyeY": 0.4349,
+          "scale": 0.832
+        }
+      }
     },
     {
       "id": "oscar-puente",
@@ -363,7 +467,20 @@
       "sources": [
         "https://www.lamoncloa.gob.es/gobierno/Paginas/biografias-xv-legislatura/ministro-oscar-puente.aspx",
         "https://es.wikipedia.org/wiki/%C3%93scar_Puente"
-      ]
+      ],
+      "photo": {
+        "file": "oscar-puente.webp",
+        "original": "https://upload.wikimedia.org/wikipedia/commons/2/24/Oscar_Puente_2023.jpg",
+        "author": "La Moncloa - Gobierno de España",
+        "license": "Attribution",
+        "licenseUrl": "https://commons.wikimedia.org/wiki/Template:Attribution",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oscar_Puente_2023.jpg",
+        "crop": {
+          "eyeX": 0.5138,
+          "eyeY": 0.3504,
+          "scale": 0.876
+        }
+      }
     },
     {
       "id": "gabriel-rufian",
@@ -387,7 +504,20 @@
       "sources": [
         "https://es.wikipedia.org/wiki/Gabriel_Rufi%C3%A1n",
         "https://es.ara.cat/politica/rufian-pliega-concejal-santa-coloma-gramenet_1_5257643.html"
-      ]
+      ],
+      "photo": {
+        "file": "gabriel-rufian.webp",
+        "original": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Gabriel_Rufi%C3%A1n_%28cropped%29.jpg",
+        "author": "Marta Jara (eldiario.es)",
+        "license": "CC BY-SA 3.0 es",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/es/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gabriel_Rufi%C3%A1n_(cropped).jpg",
+        "crop": {
+          "eyeX": 0.5066,
+          "eyeY": 0.2585,
+          "scale": 0.6463
+        }
+      }
     },
     {
       "id": "pablo-iglesias",
@@ -411,7 +541,20 @@
       "sources": [
         "https://www.lamoncloa.gob.es/gobierno/gobiernosporlegislaturas/Paginas/xiv_legislatura.aspx",
         "https://es.wikipedia.org/wiki/Pablo_Iglesias_Turri%C3%B3n"
-      ]
+      ],
+      "photo": {
+        "file": "pablo-iglesias.webp",
+        "original": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Pablo_Iglesias_en_agosto_2025_4_%28cropped%29.jpg",
+        "author": "EneasMx",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pablo_Iglesias_en_agosto_2025_4_(cropped).jpg",
+        "crop": {
+          "eyeX": 0.4742,
+          "eyeY": 0.4031,
+          "scale": 0.9483
+        }
+      }
     },
     {
       "id": "alberto-garzon",
@@ -435,7 +578,20 @@
       "sources": [
         "https://www.lamoncloa.gob.es/gobierno/gobiernosporlegislaturas/Paginas/xiv_legislatura.aspx",
         "https://es.wikipedia.org/wiki/Alberto_Garz%C3%B3n"
-      ]
+      ],
+      "photo": {
+        "file": "alberto-garzon.webp",
+        "original": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Alberto_Garz%C3%B3n_2020_%28cropped%29.jpg",
+        "author": "La Moncloa - Gobierno de España",
+        "license": "Attribution",
+        "licenseUrl": "https://commons.wikimedia.org/wiki/Template:Attribution",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Alberto_Garz%C3%B3n_2020_(cropped).jpg",
+        "crop": {
+          "eyeX": 0.4407,
+          "eyeY": 0.3537,
+          "scale": 0.7853
+        }
+      }
     },
     {
       "id": "isabel-diaz-ayuso",
@@ -459,7 +615,20 @@
       "sources": [
         "https://www.comunidad.madrid/transparencia/node/69617",
         "https://es.wikipedia.org/wiki/Isabel_D%C3%ADaz_Ayuso"
-      ]
+      ],
+      "photo": {
+        "file": "isabel-diaz-ayuso.webp",
+        "original": "https://upload.wikimedia.org/wikipedia/commons/2/20/Isabel_D%C3%ADaz_Ayuso_en_el_s%C3%A9ptimo_aniversario_de_El_Huffpost_%28cropped%29.jpg",
+        "author": "PP Comunidad de Madrid",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Isabel_D%C3%ADaz_Ayuso_en_el_s%C3%A9ptimo_aniversario_de_El_Huffpost_(cropped).jpg",
+        "crop": {
+          "eyeX": 0.4885,
+          "eyeY": 0.3056,
+          "scale": 0.7641
+        }
+      }
     },
     {
       "id": "cuca-gamarra",
@@ -483,7 +652,20 @@
       "sources": [
         "https://es.wikipedia.org/wiki/Cuca_Gamarra",
         "https://nuevecuatrouno.com/2022/03/31/cuca-gamarra-perfil-nueva-secretaria-general-pp/"
-      ]
+      ],
+      "photo": {
+        "file": "cuca-gamarra.webp",
+        "original": "https://upload.wikimedia.org/wikipedia/commons/b/b6/Debate_RTVE_13.07.2023_Iv%C3%A1n_Espinosa_de_los_Monteros_2_%28cropped%29.jpg",
+        "author": "Vox España",
+        "license": "CC0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Debate_RTVE_13.07.2023_Iv%C3%A1n_Espinosa_de_los_Monteros_2_(cropped).jpg",
+        "crop": {
+          "eyeX": 0.5133,
+          "eyeY": 0.2769,
+          "scale": 0.6923
+        }
+      }
     },
     {
       "id": "esperanza-aguirre",
@@ -507,7 +689,20 @@
       "sources": [
         "https://www.lamoncloa.gob.es/gobierno/gobiernosporlegislaturas/Paginas/VI%20Legislatura.aspx",
         "https://es.wikipedia.org/wiki/Esperanza_Aguirre"
-      ]
+      ],
+      "photo": {
+        "file": "esperanza-aguirre.webp",
+        "original": "https://upload.wikimedia.org/wikipedia/commons/2/22/Esperanza_Aguirre_32_%283941742274%29_%28cropped%29.jpg",
+        "author": "PP Comunidad de Madrid",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Esperanza_Aguirre_32_(3941742274)_(cropped).jpg",
+        "crop": {
+          "eyeX": 0.4212,
+          "eyeY": 0.3314,
+          "scale": 0.8285
+        }
+      }
     },
     {
       "id": "ines-arrimadas",
@@ -531,7 +726,20 @@
       "sources": [
         "https://es.wikipedia.org/wiki/In%C3%A9s_Arrimadas",
         "https://www.enciclopedia.cat/EC-GEC-21786261"
-      ]
+      ],
+      "photo": {
+        "file": "ines-arrimadas.webp",
+        "original": "https://upload.wikimedia.org/wikipedia/commons/c/c1/S%C3%A1enz_de_Santamar%C3%ADa_se_re%C3%BAne_con_In%C3%A9s_Arrimadas%2C_portavoz_de_Ciudadanos_en_el_Parlamento_de_Catalu%C3%B1a_%28cropped%29.jpg",
+        "author": "Ministerio de la Presidencia. Gobierno de España (Pool Moncloa/Diego Crespo)",
+        "license": "Attribution",
+        "licenseUrl": "https://commons.wikimedia.org/wiki/Template:Attribution",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:S%C3%A1enz_de_Santamar%C3%ADa_se_re%C3%BAne_con_In%C3%A9s_Arrimadas,_portavoz_de_Ciudadanos_en_el_Parlamento_de_Catalu%C3%B1a_(cropped).jpg",
+        "crop": {
+          "eyeX": 0.4852,
+          "eyeY": 0.2931,
+          "scale": 0.7327
+        }
+      }
     },
     {
       "id": "rocio-monasterio",
@@ -555,7 +763,20 @@
       "sources": [
         "https://es.wikipedia.org/wiki/Roc%C3%ADo_Monasterio",
         "https://en.wikipedia.org/wiki/Roc%C3%ADo_Monasterio"
-      ]
+      ],
+      "photo": {
+        "file": "rocio-monasterio.webp",
+        "original": "https://upload.wikimedia.org/wikipedia/commons/7/71/%28Roc%C3%ADo_Monasterio%29_Reuni%C3%B3n_entre_Ayuso_y_Monasterio_%2848408176066%29_%28cropped%29.jpg",
+        "author": "PP Comunidad de Madrid",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:(Roc%C3%ADo_Monasterio)_Reuni%C3%B3n_entre_Ayuso_y_Monasterio_(48408176066)_(cropped).jpg",
+        "crop": {
+          "eyeX": 0.5489,
+          "eyeY": 0.314,
+          "scale": 0.7849
+        }
+      }
     },
     {
       "id": "miriam-nogueras",
@@ -579,7 +800,20 @@
       "sources": [
         "https://es.wikipedia.org/wiki/M%C3%ADriam_Nogueras",
         "https://en.ara.cat/politics/miriam-nogueras-the-junts-boxer-in-madrid_129_5563377.html"
-      ]
+      ],
+      "photo": {
+        "file": "miriam-nogueras.webp",
+        "original": "https://upload.wikimedia.org/wikipedia/commons/1/11/Candidats_Eleccions_Generals_2015_-_M%C3%ADriam_Nogueras.jpg",
+        "author": "Convergència Democràtica de Catalunya",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Candidats_Eleccions_Generals_2015_-_M%C3%ADriam_Nogueras.jpg",
+        "crop": {
+          "eyeX": 0.4778,
+          "eyeY": 0.31,
+          "scale": 0.7749
+        }
+      }
     },
     {
       "id": "alberto-nunez-feijoo",
@@ -603,7 +837,20 @@
       "sources": [
         "https://es.wikipedia.org/wiki/Alberto_N%C3%BA%C3%B1ez_Feij%C3%B3o",
         "https://en.wikipedia.org/wiki/Alberto_N%C3%BA%C3%B1ez_Feij%C3%B3o"
-      ]
+      ],
+      "photo": {
+        "file": "alberto-nunez-feijoo.webp",
+        "original": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Alberto_N%C3%BA%C3%B1ez_Feij%C3%B3o_2025a_%28cropped%29.jpg",
+        "author": "Partido Popular PP",
+        "license": "CC0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Alberto_N%C3%BA%C3%B1ez_Feij%C3%B3o_2025a_(cropped).jpg",
+        "crop": {
+          "eyeX": 0.5228,
+          "eyeY": 0.376,
+          "scale": 0.8748
+        }
+      }
     },
     {
       "id": "juanma-moreno",
@@ -627,7 +874,20 @@
       "sources": [
         "https://www.juntadeandalucia.es/organismos/presidente/biografia.html",
         "https://es.wikipedia.org/wiki/Juanma_Moreno"
-      ]
+      ],
+      "photo": {
+        "file": "juanma-moreno.webp",
+        "original": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Juan_Manuel_Moreno_Bonilla_2025.jpg",
+        "author": "Junta de Andalucía",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Juan_Manuel_Moreno_Bonilla_2025.jpg",
+        "crop": {
+          "eyeX": 0.5032,
+          "eyeY": 0.2335,
+          "scale": 0.5838
+        }
+      }
     },
     {
       "id": "mariano-rajoy",
@@ -652,7 +912,20 @@
         "https://www.cidob.org/lider-politico/mariano-rajoy-brey",
         "https://www.lamoncloa.gob.es/gobierno/gobiernosporlegislaturas/Paginas/VI%20Legislatura.aspx",
         "https://es.wikipedia.org/wiki/Mariano_Rajoy"
-      ]
+      ],
+      "photo": {
+        "file": "mariano-rajoy.webp",
+        "original": "https://upload.wikimedia.org/wikipedia/commons/3/35/Rajoy_anuncia_elecciones_en_Catalu%C3%B1a_05_%28cropped%29.jpg",
+        "author": "Ministerio de la Presidencia. Gobierno de España (Pool Moncloa/ Diego Crespo)",
+        "license": "Attribution",
+        "licenseUrl": "https://commons.wikimedia.org/wiki/Template:Attribution",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rajoy_anuncia_elecciones_en_Catalu%C3%B1a_05_(cropped).jpg",
+        "crop": {
+          "eyeX": 0.5787,
+          "eyeY": 0.3559,
+          "scale": 0.8483
+        }
+      }
     },
     {
       "id": "santiago-abascal",
@@ -676,7 +949,20 @@
       "sources": [
         "https://es.wikipedia.org/wiki/Santiago_Abascal",
         "https://en.wikipedia.org/wiki/Santiago_Abascal"
-      ]
+      ],
+      "photo": {
+        "file": "santiago-abascal.webp",
+        "original": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Santiago_Abascal_CPAC_2024_%282%29.jpg",
+        "author": "Vox España",
+        "license": "CC0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Santiago_Abascal_CPAC_2024_(2).jpg",
+        "crop": {
+          "eyeX": 0.5628,
+          "eyeY": 0.3246,
+          "scale": 0.8116
+        }
+      }
     },
     {
       "id": "albert-rivera",
@@ -700,7 +986,20 @@
       "sources": [
         "https://es.wikipedia.org/wiki/Albert_Rivera",
         "https://www.elindependiente.com/politica/2019/03/10/rivera-emocionado-celebra-candidatura-la-presidencia-del-gobierno/amp/"
-      ]
+      ],
+      "photo": {
+        "file": "albert-rivera.webp",
+        "original": "https://upload.wikimedia.org/wikipedia/commons/8/80/Albert_Rivera_2016a_%28cropped_2%29.jpg",
+        "author": "Generalitat de Catalunya",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Albert_Rivera_2016a_(cropped_2).jpg",
+        "crop": {
+          "eyeX": 0.4823,
+          "eyeY": 0.3253,
+          "scale": 0.8132
+        }
+      }
     },
     {
       "id": "carles-puigdemont",
@@ -724,7 +1023,20 @@
       "sources": [
         "https://es.wikipedia.org/wiki/Carles_Puigdemont",
         "https://www.vilaweb.cat/noticies/who-is-carles-puigdemont/"
-      ]
+      ],
+      "photo": {
+        "file": "carles-puigdemont.webp",
+        "original": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Retrat_oficial_del_President_Carles_Puigdemont_cropped.jpg",
+        "author": "Generalitat de Catalunya",
+        "license": "Attribution",
+        "licenseUrl": "https://commons.wikimedia.org/wiki/Template:Attribution",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Retrat_oficial_del_President_Carles_Puigdemont_cropped.jpg",
+        "crop": {
+          "eyeX": 0.5601,
+          "eyeY": 0.2786,
+          "scale": 0.6964
+        }
+      }
     }
   ]
 }

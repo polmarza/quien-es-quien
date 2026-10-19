@@ -23,3 +23,8 @@
     font-size: 28px;
   }
 }
+
+.link {
+  color: var(--text-on-dark);
+  font-size: 14px;
+}

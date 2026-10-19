@@ -17,7 +17,7 @@ construcción previsto:
       encajan, adivinar, fin de partida y la máquina en modo fácil — M-02, M-03, M-06, M-08, M-09.
 - [x] **Baraja `politicos-es`:** datos con fuente de los 24 personajes, 12 preguntas y
       validador de equilibrio — M-10.
-- [ ] **Fotos:** búsqueda de fotos con licencia, script de procesado y créditos — M-11.
+- [x] **Fotos:** búsqueda de fotos con licencia, script de procesado y créditos — M-11.
 - [ ] **Tablero 3D:** vista a 45°, fichas con bisagra, caída en cascada, bajar y levantar a mano —
       M-01, M-04, M-05.
 - [ ] **Partida jugable:** pantalla de inicio, carta secreta, lista de preguntas,

@@ -16,7 +16,7 @@
 | Estilos y 3D | CSS con variables (CSS Modules) | Las transformaciones 3D (perspectiva, bisagra, cascada) son más legibles en CSS propio que en clases de utilidad. Los tokens de `design-system.md` viven como variables CSS. |
 | Validación de datos | Zod | Valida el esquema de cada baraja al compilar y en el script de equilibrio. |
 | Fuentes | Fontsource (autoalojadas) | Sin peticiones a Google Fonts en tiempo de ejecución. |
-| Procesado de fotos | Script Node con `sharp` | Recorte, fondo uniforme, redimensionado y exportación WebP/AVIF. Se ejecuta en local, no en el navegador. |
+| Procesado de fotos | `pnpm procesar-fotos` (Node + `sharp`) con `rembg` y OpenCV en Python | Descarga de Commons, fondo quitado con `rembg` (MIT), recorte 3:4 con los ojos en el mismo punto, fondo uniforme y WebP a 600×800 y 300×400. Se ejecuta en local, nunca en el navegador ni en el despliegue. |
 | Base de datos | Ninguna (niveles 1 y 2) | La baraja es un JSON versionado en el repo. El estado de partida vive en el navegador (nivel 1) o en el Durable Object (nivel 2). |
 | Autenticación | Ninguna | El juego no tiene cuentas (PRD, WON'T). |
 | Tiempo real (nivel 2) | Cloudflare Durable Objects + WebSockets | Un objeto por partida guarda los dos personajes secretos y arbitra los turnos. Así nadie puede ver el secreto del rival en el código del navegador. |
@@ -80,10 +80,14 @@ src/
 └── main.tsx          → Entrada de la app
 worker/               → (nivel 2) Worker y Durable Object de partidas
 scripts/
-├── procesar-fotos.ts → Recorta y normaliza las fotos originales de cada baraja
+├── procesar-fotos.ts → Descarga, quita el fondo, recorta y exporta las fotos de cada baraja
+├── quitar-fondo.py   → Fondo con rembg (lo llama procesar-fotos)
+├── detectar-ojos.py  → Propone `photo.crop` detectando cara y ojos con OpenCV
 ├── validar-baraja.ts → Comprueba esquema y equilibrio (M-10)
 └── verificar-cobertura.mjs
-fotos-originales/     → Descargas originales con su licencia (no se sirven al público)
+fotos-originales/     → Originales descargados y recortes sin fondo (no se suben al repo)
+public/fotos/<baraja>/ → Fotos procesadas en 600/ y 300/ (sí se suben)
+.venv-fotos/          → Entorno de Python con rembg y OpenCV (no se sube)
 tests/
 └── e2e/              → Tests de Playwright
 ```
@@ -155,6 +159,16 @@ Si en el prototipo la sensación de plástico se queda corta, se revisa.
 **Contexto:** habrá barajas de otros temas.
 **Decisión:** cada baraja es una carpeta con `deck.json` (personajes, atributos, preguntas, colores de tablero y créditos) y sus fotos. El motor no sabe nada de política.
 **Consecuencias:** añadir una baraja no toca el código; el script de validación se aplica a todas.
+
+### 2026-10-18 — Herramientas para las fotos
+**Contexto:** quitar el fondo y encuadrar 24 fotos de origen distinto de forma repetible.
+**Opciones consideradas:** `@imgly/background-removal` (AGPL), `rembg` (MIT), recorte a mano.
+**Decisión:** `rembg` con el modelo `isnet-general-use`, quedándose solo con la silueta principal, y
+OpenCV 4 (clasificadores Haar) para proponer el punto de los ojos. Ambos en `.venv-fotos/` (Python
+3.14, creado con `uv`). Python se lanza con `-I` porque la carpeta `coverage/` de Vitest tapa un
+paquete de Python con el mismo nombre.
+**Consecuencias:** para regenerar fotos hace falta ese entorno; para jugar o desplegar, no: las fotos
+procesadas están en el repo.
 
 ### 2026-10-16 — Recorte de fotos con coordenadas guardadas
 **Contexto:** las fotos tienen que tener el mismo encuadre.

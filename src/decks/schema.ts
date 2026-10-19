@@ -49,8 +49,7 @@ export const characterSchema = z.object({
   attributes: z.record(z.string(), z.boolean()),
   /** Dónde se ha contrastado cada dato del personaje: al menos dos fuentes. */
   sources: z.array(z.url()).min(2, 'Cada personaje necesita al menos dos fuentes'),
-  /** Opcional hasta la feature de las fotos (M-11). */
-  photo: photoSchema.optional(),
+  photo: photoSchema,
 });
 
 export const deckSchema = z
